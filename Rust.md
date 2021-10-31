@@ -138,3 +138,126 @@ fn first_word(s: &String) -> &str {
 &str은 불변 참조자
 
 
+### 구조체
+```rust
+struct User {
+    username: String,
+    email: String,
+    sign_in_count: u64,
+    active: bool,
+}
+```
+인스턴스는 반드시 mutable. Rust에서는 특정 필드만 변경할 수 있도록 허용하지 않는다.
+
+```rust
+fn build_user(email: String, username: String) -> User {
+    User {
+        email,
+        username,
+        activce: true,
+        sigin_in_count:1,
+    }
+}
+```
+
+struct update syntax
+
+```rust
+let user2 = User {
+    email: String::from("another@example.com"),
+    username: String::from("anotherusername567"),
+    ..user1
+}
+```
+email 과 username 필드에는 새 값을 할당하고, 나머지 필드는 user1에서 재사용
+
+
+이름이 없고 필드마다 타입이 다르게 정의 가능한 튜플 구조체
+```rust
+struct Color(i32, i32, i32);
+
+let black = Color(0, 0, 0);
+```
+
+필드가 없는 유사 유닛 구조체
+
+&str로 하는 경우 컴파일러는 라이프타임이 명시되어야 한다고 에러를 발생시킨다.
+
+
+### Debug
+
+```rust
+#[derive(Debug)]
+struct Rectangle {
+    length: u32,
+    width: u32,
+}
+
+fn main() {
+    let rect1 = Rectangle { length: 30, width: 20 };
+    println!("area : {}", area(&rect1));
+
+    println!("{:?}", rect1)
+}
+
+fn area(rectangle: &Rectangle) -> u32 {
+    rectangle.length * rectangle.width
+}
+```
+
+디버깅 정보를 출력하기 위해서는 #[derive(Debug)] annotation을 추가해줘야한다.
+{:#?} 을 이용하면 
+```rust
+rect1 is Rectangle {
+    length: 50,
+    width: 30
+}
+```
+
+### 메소드 정의하기
+```rust
+#[derive(Debug)]
+struct Rectangle {
+    length: u32,
+    width: u32,
+}
+
+impl Rectangle {
+    fn area(&self) -> u32 {
+        self.length * self.width
+    }
+    
+    fn can_hold(&self, other: &Rectangle) -> bool {
+        self.length > other.length && self.width > other.width
+    }
+}
+
+fn main() {
+    let rect = Rectangle { length: 10, width: 20 };
+
+    println!("{}", rect.area())
+}
+```
+
+c++ 라면 
+object가 포인터라면 object->something() 과 비슷 
+
+러스트는
+```rust
+p1.distance(&p2);
+(&p1).distance(&p2);
+```
+같은 표현이다.
+
+#### 연관 함수
+구제차와 연관이 있는 경우 값을 쓰지 않고 다음과 같이 표현이 가능한데 연관 함수이다.
+연관 함수는 새로운 구조체의 인스턴스를 반환해주는 생성자로서 자주 사용된다.
+```rust
+impl Rectangle {
+    fn square(size: u32) -> Rectangle {
+        Rectangle { length: size, width: size }
+    }
+}
+```
+
+
