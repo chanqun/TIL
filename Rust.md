@@ -261,3 +261,49 @@ impl Rectangle {
 ```
 
 
+### 열거형과 패턴 매칭
+```rust
+enum IpAddrKind {
+    V4(String),
+    V6(String),
+}
+
+fn main() {
+    let home = IpAddr::V4(String::from("127.0.0.1"));
+}
+```
+
+열거형에서도 메소드를 정의할 수 있다.
+```rust
+enum Message {
+    Quit,
+    Move { x: i32, y: i32 },
+    Write(String),
+    ChangeColor(i32, i32, i32),
+}
+
+impl Message {
+    fn call(&self) {
+        
+    }
+}
+```
+
+### Option 열거형과 Null 값 보다 좋은 점들
+
+```rust
+enum Option<T> {
+    Some(T),
+    None,
+}
+```
+
+
+
+
+
+
+
+
+
+
