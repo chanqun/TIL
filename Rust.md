@@ -298,10 +298,49 @@ enum Option<T> {
 }
 ```
 
+### match 흐름 제어 연산자
 
+match의 힘은 패턴의 표현성으로부터 오며 컴파일러는 모든 가능한 경우가 다루어지는지 검사한다.
 
+```rust
+enum UsState {
+    Alabama,
+    Alaska,
+}
 
+enum Coin {
+    Penny,
+    Nickel,
+    Dime,
+    Quarter(UsState)
+}
+```
 
+### _ 변경자(placeholder)
+
+```rust
+let some_u8_value = 0u8;
+mactch some_u8_value {
+    1 => println!("one"),
+    3 => println!("three"),
+    _ => (),
+}
+```
+
+### if let을 사용한 간결한 흐름 제어
+
+```rust
+if let Some(3) = some_u8_value {
+    println!("three");
+}
+
+let mut count = 0;
+if let Coin::Quarter(state) = coin {
+    println!("State quarter from {:?}!", state);
+} else {
+    count += 1;
+}
+```
 
 
 
