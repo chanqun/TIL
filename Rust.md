@@ -343,6 +343,122 @@ if let Coin::Quarter(state) = coin {
 ```
 
 
+### 모듈을 사용하여 코드를 재사용하고 조직화하기
+
+- mod 키워드는 새로운 모듈을 선언한다. 모듈 내의 코드는 이 선언 바로뒤에 중괄호로 묶여서 따라오거나 다른 파일에 놓일 수 있다.
+- 기본적으로, 함수, 타입, 상수, 그리고 모듈은 private. pub 키워드가 어떤 아이템을 public하게 만들어줘서 이것의 네임스페이스 바깥쪽에서도 볼 수 있도록 한다.
+- use 키워드는 모듈이나 모듈 내의 정의들을 스코프 안으로 가져와서 이들을 더 쉽게 참조할 수 있도록 한다.
 
 
+### mod와 파일 시스템
+```
+$ cargo new communicator --lib
+$ cd communicator
+```
 
+;을 붙입으로써 client 를 선언함으로써 외부 파일에서 가져온다는 말이다.
+
+### pub 으로 가시성(visibility) 제어하기
+
+```rust
+extern crate communicator;
+
+fn main() {
+    communicator::client::connect();
+}
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+> src/lib.rs
+
+pub mod client;
+mod network
+하고
+
+src/client.rs
+pub fn connect() {
+    
+}
+```
+
+### 비공개 규칙(Privacy Rules)
+
+1. 만일 어떤 아이템이 공개라면, 이는 부모 모듈의 어디에서든 접근 가능하다.
+2. 만일 어떤 아이템이 비공개라면, 같은 파일 내에 있는 부모 모듈 및 이 부모의 자식 모듈에서만 접근 가능하다.
+
+```rust
+mod outermost {
+    pub fn middle_function() {}
+
+    fn middle_secret_function() {}
+
+    mod inside {
+        pub fn inner_function() {}
+
+        fn secret_function() {}
+    }
+}
+
+fn try_me() {
+    outermost::middle_function();
+    outermost::middle_secret_function();
+    outermost::inside::inner_function();
+    outermost::inside::secret_function();
+}
+```
+outermost::middle_function() 만 호출 가능하다.
+
+
+### Importing Names
+```rust
+pub mod a {
+    pub mod series {
+        pub mod of {
+            pub fn nested_modules() {}
+        }
+    }
+}
+
+use a::series::of;
+
+fn main() {
+    of::nested_modules();
+}
+```
+
+```rust
+enum TrafficLight {
+    Red,
+    Yellow,
+    Green,
+}
+
+use TrafficLight::{Red, Yellow};
+
+모두 가져오기
+use TrafficLight::*;
+
+fn main() {
+    let red = Red;
+    let yellow = Yellow;
+    let green = TrafficLight::Green;
+}
+```
+
+
+> cargo test
+하면 기능을 테스트 해줌
+```rust
+형제 모듈을 가져오는법
+user super::client;
+
+#[cfg(test)]
+mod tests {
+    use super::client;
+
+    #[test]
+    fn it_works() {
+        client::connect();
+    }
+}
+
+```
