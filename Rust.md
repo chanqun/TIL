@@ -462,3 +462,68 @@ mod tests {
 }
 
 ```
+
+
+### 일반적인 컬렉션
+
+#### 벡터
+
+```rust
+let v: Vec<i32> = Vec::new();
+
+let v = vec![1, 2, 3];
+
+v.push(5);
+v.push(6);
+v.push(7);
+v.push(8);
+```
+벡터도 스코프 밖으로 벗어났을 때 해제된다.
+
+
+#### 벡터의 요소들 읽기
+
+```rust
+let v = vec![1, 2, 3, 4, 5];
+let third = $v[2];
+let third = Option<&i32> = v.get(2);
+```
+위에 경우 벡터의 값을 벗어난 것을 조회시 에러
+밑에 경우 None을 반환한다.
+
+```rust
+let mut v = vec![1, 2, 3, 4, 5];
+let first = &v[0];
+v.push(6);
+```
+immutable로 넘겼기 때문에 add가 불가능
+
+```rust
+let v = vec![100, 32, 57];
+for i in &v {
+    println!("{}", i);
+}
+```
+
+역참조 연산자(*)를 사용하여 값을 얻는다.
+```rust
+let mut v = vec![100, 32, 57];
+for i in &mut v {
+    *i += 50;
+}
+```
+
+```rust
+enum SpreadsheetCell {
+    Int(i32),
+    Float(f64),
+    Text(String),
+}
+
+let row = vec![
+    SpreadsheetCell::Int(3),
+    SpreadsheetCell::Int(String::from("blue")),
+    SpreadsheetCell::Float(10.12),
+];
+```
+
