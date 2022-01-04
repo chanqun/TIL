@@ -56,3 +56,16 @@ fun sum(a: Int = 0, b: Int = 0, c: Int = 0)
 ```
 
 Only 4 overloaded functions are generated
+
+
+
+#### Control Structures
+No break is needed
+```kotlin
+when (pet) {
+    is Cat -> pet.meow()
+    is Dog -> pet.woof()
+}
+```
+
+withIndex()
