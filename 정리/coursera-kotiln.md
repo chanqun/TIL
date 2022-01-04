@@ -26,3 +26,33 @@ fun updateWeather(degrees: Int) {
 }
 ```
 
+#### Hello, world example (expression) / 
+
+#### variables (read-only list) / 
+
+#### functions / 
+```kotlin
+fun max(a: Int, b: Int) = if (a > b) a else b
+```
+
+function returning Unit
+function everywhere
+
+@JvmName annotation can change name
+
+#### named & default arguments
+
+```kotlin
+fun displaySeparator(size: Int, character: Char) {
+    repeat(size) {
+        print(character)
+    }
+}
+```
+
+```kotlin
+@JvmOverloads
+fun sum(a: Int = 0, b: Int = 0, c: Int = 0)
+```
+
+Only 4 overloaded functions are generated
