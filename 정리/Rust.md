@@ -527,3 +527,35 @@ let row = vec![
 ];
 ```
 
+### 스트링
+
+```rust
+let mut s = String::new();
+
+let data = "initial contents";
+let s = data.to_string();
+```
+
+스트링은 더 커질 수 있음
+
+```rust
+let mut s = String::from("foo");
+
+let s2 = "bar";
+
+s.push_str(&s2);
+
+
+// s.push 는 한 글자 추가 가능
+```
+
+```rust
+let s1 = String::from("Hello, ");
+let s2 = String::from("world!");
+let s3 = s1 + &s2;
+```
+
+
+
+
+
