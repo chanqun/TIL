@@ -69,3 +69,26 @@ when (pet) {
 ```
 
 withIndex()
+
+
+#### exceptions
+no difference between checked and unchecked exceptions
+
+for java
+```kotlin
+@Throws(IOException::class)
+fun bar() {
+    throw IOException()
+}
+```
+
+#### extension function
+
+infix function
+ex) map To, until
+
+```kotlin
+val regex = """\d{2}""".toRegex()
+```
+
+Warning: Extension is shadowed by a member
