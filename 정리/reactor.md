@@ -1,3 +1,109 @@
+[Reactor 3 Reference Guide](https://projectreactor.io/docs/core/release/reference/)
+
+
+## 1. About the Documentation
+
+## 2. Getting Started
+
+#### 2.1. Introducing Reactor
+
+Reactor is a fully non-blocking reactive programming foundation for the JVM
+
+## 3. Introduction to Reactive Programming
+
+Reactor is an implementation of the Reactive Programming paradigm, which can be summed
+up as follows:
+> Reactive Programming is an asynchronous programming paradigm
+> concerned with data streams and the propagation of change.
+
+In Reactive streams, the equivalent of the above pair is Publisher-Subscriber.
+
+
+#### 3.1. Blocking Can Be Wasteful
+
+There are, broadly, two ways one can improve a program's performance:
+- parallelize to use more threads and more hardware resources.
+- seek more efficiency in how curren resources are used.
+
+
+#### 3.2. Asynchronicity to the Rescue?
+
+How can you produce asynchronous code on the JVM?
+Java offers two models of asynchronous programming
+
+- Callbacks : Asynchronous methods do not have a return value but take an extra
+callback parameters (a lambda or anonymous class) that gets called when the result is available.
+A well known example is Swing's EventListener hierarchy.
+- 
+- Futures : Asynchronous methods immediately return a Future<T>. The Asynchronous process computes a T value,
+but the Future object wraps access to it. The value is not immediately available.
+For instance, an ExecutorService running Callable<T> tasks use Future objects.
+
+
+Future has problems
+- It is easy to end up with another blocking situation with Future objects by calling the get() method.
+- They do not support lazy computation.
+- They lack support for multiple values and advanced error handling.
+
+
+## 3.3 From Imperative to Reactive Programming 
+
+- Composability and readability
+- Data as a flow manipulated with a rich vocabulary of operators
+- Nothing happens until you subscribe
+- Backpressure or the ability for the consumer to signal the producer that the rate of emission is too high
+- High level but high value abstraction that is concurrency-agnostic
+
+
+#### 3.3.6 Hot vs Cold
+
+The Rx family of reactive libraries distinguishes two broad categories of reactive sequences: hot and cold.
+
+- A Cold sequence starts a new for each Subscriber. including at the source of data.
+For example, if the source wraps an HTTP call, a new HTTP request is made for each subscription.
+
+- A Hot sequence does not start from scratch for each Subscriber. Rather, late subscribers receive signals emitted after they 
+subscribed. Note, hoewver, that some hot reactive streams can cache or replay the history of emissions totally or partilally.
+- From a general perspective, a hot sequence can even emit when no subscriber is listening
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Reactor - kakao Tech reactor 게시물 정리
 
 Reactor는 Pivotal의 오픈소스 프로젝트, JVM위에서 동작하는 논블럭킹(소켓 관련 시스템 콜에 대하여 네트워크 시스템이 즉시 처리할 수 없는 경우라도 시스템콜이 바로 리턴되어 응용 프로그램이 block
