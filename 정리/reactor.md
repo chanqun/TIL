@@ -83,6 +83,34 @@ with an onComplete signal (successful Mono, with or without vale), or only emits
 
 #### 4.3 Simple Ways to Create a Flux or Mono and Subscribe to It
 
+Flux and Mono is to use one of the numerous factory methods found in their respective classes
+
+```kotlin
+val seq1 = Flux.just("foo", "bar")
+
+val iterable = arrayOf("foo", "bar")
+val seq2 = Flux.fromIterable(iterable)
+
+
+val noDate = Mono.empty()
+val data = Mono.just("foo")
+```
+
+When it comes to subscribing, Flux and Mono make use of Java 8 lambdas
+wide choice of .subscribe()
+
+```kotlin
+subscribe()
+
+subscribe(  
+    consumer: Consumer<? super ?>, 
+    errorConsumer: Consumer<? super Throwable>,
+    completeConsumer: Runnable,
+    subscriptionConsumer: Consumer<? super Subscription>
+)
+```
+
+
 
 
 
