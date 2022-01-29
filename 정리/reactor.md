@@ -63,10 +63,25 @@ The Rx family of reactive libraries distinguishes two broad categories of reacti
 For example, if the source wraps an HTTP call, a new HTTP request is made for each subscription.
 
 - A Hot sequence does not start from scratch for each Subscriber. Rather, late subscribers receive signals emitted after they 
-subscribed. Note, hoewver, that some hot reactive streams can cache or replay the history of emissions totally or partilally.
+subscribed. Note, however, that some hot reactive streams can cache or replay the history of emissions totally or partially.
 - From a general perspective, a hot sequence can even emit when no subscriber is listening
 
 
+## Reactor Core Features
+
+#### 4.1. Flux, an Asynchronous Sequence of 0-N Items
+
+A Flux<T> is a standard Publisher<T> that represents an asynchronous sequence of 0 toN emitted items,
+optionally terminated by either a completion signal or an error. As in the Reactive Streams spec,
+these Spec, these three types of signal translate to calls to a downstream Subscriber's onNext, 
+onComplete, and onError methods.
+
+#### 4.2. Mono, an Asynchronous 0-1 Result
+
+A Mono<T> is a specialized Publisher<T> that one item via the onNext signal then terminates
+with an onComplete signal (successful Mono, with or without vale), or only emits a signal onError signal (failed Mono)
+
+#### 4.3 Simple Ways to Create a Flux or Mono and Subscribe to It
 
 
 
