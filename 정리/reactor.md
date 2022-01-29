@@ -110,6 +110,10 @@ subscribe(
 )
 ```
 
+#### 4.4.2 Asynchronous and Multi-threaded: create
+
+#### 4.4.3 Asynchronous but single-threaded: push
+
 
 
 
