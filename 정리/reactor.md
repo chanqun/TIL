@@ -63,10 +63,16 @@ The Rx family of reactive libraries distinguishes two broad categories of reacti
 For example, if the source wraps an HTTP call, a new HTTP request is made for each subscription.
 
 - A Hot sequence does not start from scratch for each Subscriber. Rather, late subscribers receive signals emitted after they 
-subscribed. Note, hoewver, that some hot reactive streams can cache or replay the history of emissions totally or partilally.
-- From a general perspective, a hot sequence can even emit when no subscriber is listening
+subscribed. Note, however, that some hot reactive streams can cache or replay the history of emissions totally or partially.
+From a general perspective, a hot sequence can even emit when no subscriber is listening
 
 
+## 4. Reactor Core Features
+
+A Flux object represents a reactive sequence of 0..N items, while a mono object represents a single-value-or-empty (0..1) result.
+
+
+#### 4.1. Flux, an Asynchronous sequence of 0-N Items
 
 
 
@@ -114,7 +120,7 @@ Spring Framework 5 부터 리액티브 프로그래밍을 위해 지원되는 �
 
 ### Mono와 Flux
 
-> Mono는 0-1개의 결과만을 처리하귀 위한 Reactor의 객체이고, Flux는 0-N개인 여러 개의 결과를 처리하는 객체이다.
+> Mono는 0-1개의 결과만을 처리하기 위한 Reactor의 객체이고, Flux는 0-N개인 여러 개의 결과를 처리하는 객체이다.
 >
 > Reactor를 사용해 일련의 스트림을 코드로 작성하다 보면 보통 여러 스트림을 하나의 결과를 모아줄 때 Mono를 쓰고, 각각의 Mono를 합쳐서 여러 개의 값을 처리하는
 > Flux로 표현할 수도 있다.
