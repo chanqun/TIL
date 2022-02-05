@@ -64,15 +64,54 @@ For example, if the source wraps an HTTP call, a new HTTP request is made for ea
 
 - A Hot sequence does not start from scratch for each Subscriber. Rather, late subscribers receive signals emitted after they 
 subscribed. Note, however, that some hot reactive streams can cache or replay the history of emissions totally or partially.
-From a general perspective, a hot sequence can even emit when no subscriber is listening
+
+## Reactor Core Features
+
+#### 4.1. Flux, an Asynchronous Sequence of 0-N Items
+
+A Flux<T> is a standard Publisher<T> that represents an asynchronous sequence of 0 toN emitted items,
+optionally terminated by either a completion signal or an error. As in the Reactive Streams spec,
+these Spec, these three types of signal translate to calls to a downstream Subscriber's onNext, 
+onComplete, and onError methods.
+
+#### 4.2. Mono, an Asynchronous 0-1 Result
+
+A Mono<T> is a specialized Publisher<T> that one item via the onNext signal then terminates
+with an onComplete signal (successful Mono, with or without vale), or only emits a signal onError signal (failed Mono)
+
+#### 4.3 Simple Ways to Create a Flux or Mono and Subscribe to It
+
+Flux and Mono is to use one of the numerous factory methods found in their respective classes
+
+```kotlin
+val seq1 = Flux.just("foo", "bar")
+
+val iterable = arrayOf("foo", "bar")
+val seq2 = Flux.fromIterable(iterable)
 
 
-## 4. Reactor Core Features
+val noDate = Mono.empty()
+val data = Mono.just("foo")
+```
 
-A Flux object represents a reactive sequence of 0..N items, while a mono object represents a single-value-or-empty (0..1) result.
+When it comes to subscribing, Flux and Mono make use of Java 8 lambdas
+wide choice of .subscribe()
 
+```kotlin
+subscribe()
 
-#### 4.1. Flux, an Asynchronous sequence of 0-N Items
+subscribe(  
+    consumer: Consumer<? super ?>, 
+    errorConsumer: Consumer<? super Throwable>,
+    completeConsumer: Runnable,
+    subscriptionConsumer: Consumer<? super Subscription>
+)
+```
+
+#### 4.4.2 Asynchronous and Multi-threaded: create
+
+#### 4.4.3 Asynchronous but single-threaded: push
+
 
 
 
