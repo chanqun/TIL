@@ -44,17 +44,16 @@ Subscriber
 Sbuscription
 ```
 
+```java
+Sub,   Pub
+pub.subscribe(sub)
+```
 
+Operators
 
+Publisher -> [Data] -> Operator1 -> [Data2] -> Op2 -> [Data3] -> Subscriber
 
-
-
-
-
-
-
-
-
+! 스프링에는 피료한 것만 상속할 수 있도록 adapterClass가 있음
 
 
 
