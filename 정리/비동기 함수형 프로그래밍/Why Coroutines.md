@@ -45,6 +45,10 @@ repeat(100_000) {
 }
 ```
 
-process가 끝나면 coroutine도 끝난다
+- process가 끝나면 coroutine도 끝난다
+- delay도 suspend fun
+- launch는 스케줄러 느낌
+
+
 
 
