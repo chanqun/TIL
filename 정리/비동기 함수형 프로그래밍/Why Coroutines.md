@@ -134,6 +134,18 @@ start or await를 호출해야 한다.
 coroutine 안 에서만 사용할 수 있도록 만들어라
 
 
+## Coroutines under the hood
+
+### Continuation Passing Style (CPS)
+
+CPS로 알아서 compile 해줌
+
+bytecode 보면
+
+Continuation 객체를 넘기게 바뀜 -> 작성한 함수가 내부적으로 switch 문으로 바뀌고 -> suspend 함수 호출할 때 마다 cont 만듬 (callback interface 같은 것)
+
+
+
 
 
 
