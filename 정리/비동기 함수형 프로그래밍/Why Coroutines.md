@@ -49,6 +49,47 @@ repeat(100_000) {
 - delay도 suspend fun
 - launch는 스케줄러 느낌
 
+## Cancellation and Timeouts
 
+```kotlin
+fun main() = runBlocking {
+    job = launch {
+        try {
+            repeat(1000) {
+                delay(500L)
+            }
+        } finally {
+            withConext(NonCacnellable) {
+                delay(1000L)
+            }
+        }
+    }
 
+    delay(1300L)
+    job.cancel() //
+    job.join()
+}
+```
 
+- Coroutine cancellation is cooperative
+- A coroutine code has to cooperate to be cancellable
+- suspending functions are cancellable
+
+> yield() 는 delay를 안 주고도 취소할 수 있음
+> cancel될 때 exception을 던짐 CancellationException
+
+- way 1 : to periodically invoke a suspending
+- way 2 : explicitly check the cancellations status (isActive)
+
+resource 해제 블럭은 finally 에서 하면 됨
+
+```kotlin
+fun main() = runBlocking {
+    val result = withTimeoutOrNull(1300L) {
+        repeat(1000) {
+            delay(500L)
+        }
+    }
+    println("Result is $result")
+}
+```
