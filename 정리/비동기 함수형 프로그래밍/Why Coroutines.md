@@ -93,3 +93,50 @@ fun main() = runBlocking {
     println("Result is $result")
 }
 ```
+
+Sequential by default
+
+```kotlin
+
+fun main() = runBlocking {
+    val time = measureTimeMillis {
+        val one = async { doSomethingUsefulOne() }
+        val two = async { doSomethingUsefulTwo() }
+        println("${one.await()}  ${two.await()}")
+    }
+
+    println("Completed in $time ms")
+}
+
+suspend fun doSomethingUsefulOne()
+
+suspend fun doSomethingUsefulTwo()
+```
+
+- to simplify code that executes asynchronously.
+- converts async callbacks to sequential code.
+- Use suspend functions to make async code sequential.
+
+
+async { }
+- Note that concurrency with coroutines is always explicit.
+
+
+LAZY를 걸어서 나중에 실행하게 할 수 있다.
+```
+val one = async(start = CoroutineStart.LAZY) { doSomething() }
+one.start()
+```
+start or await를 호출해야 한다.
+
+--> structured concurrency (GlobalScope XXXXX) , exception에 대한 핸들링이 떨어지게 됨
+
+coroutine 안 에서만 사용할 수 있도록 만들어라
+
+
+
+
+
+
+
+
