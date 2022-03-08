@@ -117,22 +117,22 @@ suspend fun doSomethingUsefulTwo()
 - converts async callbacks to sequential code.
 - Use suspend functions to make async code sequential.
 
-
 async { }
+
 - Note that concurrency with coroutines is always explicit.
 
-
 LAZY를 걸어서 나중에 실행하게 할 수 있다.
+
 ```
 val one = async(start = CoroutineStart.LAZY) { doSomething() }
 one.start()
 ```
+
 start or await를 호출해야 한다.
 
 --> structured concurrency (GlobalScope XXXXX) , exception에 대한 핸들링이 떨어지게 됨
 
 coroutine 안 에서만 사용할 수 있도록 만들어라
-
 
 ## Coroutines under the hood
 
@@ -144,11 +144,34 @@ bytecode 보면
 
 Continuation 객체를 넘기게 바뀜 -> 작성한 함수가 내부적으로 switch 문으로 바뀌고 -> suspend 함수 호출할 때 마다 cont 만듬 (callback interface 같은 것)
 
+## Coroutine Context and Dispatchers
 
+Dispatchers.Unconfined // main
 
+Dispatchers.Default // Dispatcher-worker-1 = GlobalScope
 
+newSingleThreadContext // coroutine 실행마다 스레드를 만듬
 
+-Dkotlinx.coroutines.debug JVM Option도 제공해줌
 
+```kotlin
+fun main() {
+    newSingleThreadContext("Ctx1").use { ctx1 ->
+        newSingleThreadContext("Ctx2").use { ctx2 ->
+            runBlockgin(ctx1) {
+                log("ctx1")
 
+                withContext(ctx2) {
+                    log("ctx2")
+                }
+
+                log("ctx1")
+            }
+        }
+    }
+}
+```
+
+job 들은 부모 자식 관계가 있고 이것에 따라 취소를 할 수 있다.
 
 
