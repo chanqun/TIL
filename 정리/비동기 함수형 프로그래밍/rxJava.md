@@ -53,6 +53,46 @@ public static void main(String[] args) {
 just : Observable 이나 flowable을 반환한다.
 
 
+## reactive streams 란?
+- 리액티브 프로그래밍 라이브러리의 표준 사양
+- 인터페이스만 제공
+- Publisher, Subscriber, Subscription, Processor 라는 4개의 인터페이스를 제공
+
+Publisher: 데이터를 생성하고 통지
+Subscriber: 통지된 데이터를 전달받아서 처리
+Sbuscription: 전달 받은 데이터의 개수를 요청하고 구독을 해지
+Processor: Publisher와 Subscriber 기능이 모두 있음
+
+
+### Cold Publisher & Hot Publisher
+Cold
+- 생사자는 소비자가 구독 할때마다 데이터를 처음부터 새로 통지
+
+Hot
+- 생산자는 소비자 수와 상관없이 데이터를 한 번만 통지
+
+Processor, Subject로 끝나면 hot publisher라고 볼 수 있음
+
+
+```java
+PublishProcessor<Integer> processor = PublishProcessor.create();
+
+processor.subscribe(data -> System.out.println("구독자 1:" + data));
+processor.onNext(1);
+
+processor.subscribe(data -> System.out.println("구독자 1:" + data));
+processor.onNext(2);
+
+processor.onComplete();
+```
+
+
+
+
+
+
+
+
 
 
 
