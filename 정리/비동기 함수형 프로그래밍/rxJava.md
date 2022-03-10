@@ -24,3 +24,35 @@ Pull 방식 : 변경된 데이터가 있는지 요청을 보내 질의하고 변
 > 리액티브 연산자(Operators) : 데이터 소스를 처리하는 함수
 > 스케줄러(Scheduler) : 스레드 관리자
 > 함수형 프로그래밍 : RxJava에서 제공하는 연산자 함수를 사용
+
+
+
+## 마블 다이어그램
+
+리액티브 프로그래밍을 통해 발생하는 비동기적인 데이터의 흐름을 시간의 흐름에 따라 시각적으로 표시한 다이어그램
+- 문장으로 적혀 있는 리액티브 연산자의 기능을 이해하기위한 핵심 도구
+
+| -> 데이터 발행이 정상적으로 끝남
+x -> 에러가 발생한 후 종료 됨
+
+```java
+filter
+- 1 - 25 - 9 - 15 - |
+filter(x => x > 10)
+- - - 25 - - - 15 - |
+
+
+public static void main(String[] args) {
+    Observable.just(1, 25, 9)
+        .filter(x -> x > 10)
+        .subscribe(x -> System.out.println(x));
+}
+
+```
+
+just : Observable 이나 flowable을 반환한다.
+
+
+
+
+
