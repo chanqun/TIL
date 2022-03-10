@@ -87,6 +87,24 @@ processor.onComplete();
 ```
 
 
+### Flowable과 Observable
+
+Flowable
+- reactive Streams 인터페이스를 구현함
+- 배압 기능이 있음
+Observable
+- reactive Streams 인터페이스를 구현하지 않음
+- 배압 기능이 없음
+
+배압(BackPressure)이란?
+Flowable에서 데이터를 통지하는 속도가 Subscriber에서 통지된 데이터를 전달받아 처리하는 속도 보다 빠를 때 밸런스를 맞추기 위해 데이터 통지량을 제어하는 기능
+
+- MISSING 전략
+- ERROR 전략
+- BUFFER
+  - DROP_LATEST 가장 최근에 버퍼로 들어온 데이터를 DROP하고 기다리던 데이터를 채움
+
+
 
 
 
