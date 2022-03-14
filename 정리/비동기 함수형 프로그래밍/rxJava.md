@@ -103,6 +103,27 @@ Flowable에서 데이터를 통지하는 속도가 Subscriber에서 통지된 �
 - ERROR 전략
 - BUFFER
   - DROP_LATEST 가장 최근에 버퍼로 들어온 데이터를 DROP하고 기다리던 데이터를 채움
+  - DROP_OLDEST 버퍼가 가장 오래 된 데이터를 버리고 채우게 됨
+- DROP 전략 - 이후 생성되는 데이터를 버림
+- LATEST 버퍼에 데이터가 모두 채워진 상태가 되면 버퍼가 비워질 떄까지 통지된 데이터는 버퍼 밖에서 대기
+
+## Single vs Maybe vs Completable
+
+### Single
+- 데이터를 1건만 통지하거나 에러를 통지
+- 데이터 통지 자체가 완료를 의미
+- 데이터를 1건만 통지하므로 데이터 개수를 요청할 필요가 없다
+- onSuccess() 제공
+- 대표적 소비자 SingleObserver
+- 클라이언트의 요청에 대응하는 서버의 응답이 Single을 사용하기 좋은 대표적인 예이다.
+
+
+### Maybe
+- 데이터를 1건만 통지하거나 1건도 통지하지 않고 완료 또는 에러
+- 데이터 통지 자체가 완료를 의미
+- 데이터를 1건도 처리하지 않고 처리가 종료될 경우에는 완료 통지를 한다.
+- Maybe의 대표적인 소비자는 MaybeOvserver 이다.
+
 
 
 Completable
@@ -163,9 +184,7 @@ BiFunction<T, U, R>  |  (T, U) -> R
 
 
 
-
-
-
+  
 
 
 
