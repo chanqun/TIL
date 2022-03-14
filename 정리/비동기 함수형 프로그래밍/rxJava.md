@@ -172,6 +172,18 @@ BiConsumer<T, U>  |  (T,U) -> void
 BiFunction<T, U, R>  |  (T, U) -> R
 
 
+### 메서드 레퍼런스란?
+객체의 래퍼런스
+
+- 람다 표현식 부분에 기술되는 메서드를 이용해서 표현되며, 메서드의 이름만 전달
+- ::를 붙이는 방식으로 메서드 레퍼런스를 표현한다.
+
+```java
+ClassName::static method
+
+(String s) -> Integer.parseInt(s)
+Integer::parseInt
+```
 
 
 
