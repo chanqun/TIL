@@ -198,9 +198,47 @@ CkassName::new
 ```
 
 
+## 리액티브 연산자 개요 및 생성자 연산자
+
+RxJava의 연산자는 메서드 
+에러처리, 유틸리티, 조건과 불린, 통지된 데이터 변환, 통지된 데이터 필터링, 통지된 데이터 집계
 
 
+- interval
+  - 완료 없이 계속 통지한다.
+  - 호출한 스레드와는 별도의 스레드에서 실행된다.
+  - polling 용도의 작업을 수행할 때 활용할 수 있다.
 
+```java
+public static void main(String[] args) {
+    Observable.interbal(0L, 1000L, TimeUnit.MILLISECONDS)
+        .map(num -> num + " count")
+        .subscribe(data -> Logger.Log(LogType.ON_NEXT, data));
+}
+```
+
+- range
+  - range(n, m) n ~ n + m - 1
+
+- timer
+  - 지정한 시간이 지나면 0을 통지
+  - 0을 통지하고 onComplete() 이벤트가 발생하여 종료
+  - 호출한 스레드와는 별도의 스레드에서 실행
+  - 특정 시간을 대기한 후에 어떤 처리를 하고자 할 때 활용할 수 있다.
+
+- defer
+  - 구독을 할 때마다 새로운 타임라인(Observable)이 생성된다.
+  - 선언한 시점의 데이터를 통지하는 것이 아니라 호출 시점의 데이터를 통지한다.
+  - 데이터 생성을 미루는 효과가 있기 때문에 최신 데이터를 얻고자할 때 활용할 수 있다.
+
+- fromIterable
+  - Iterable 인터페이스를 구현한 클래스를 파라미터로 받는다.
+  - Iterable에 담긴 데이터를 순서대로 통지한다.
+
+- fromFuture
+  - Future 인터페이스는 자바 5에서 비동기 처리를 위해 추가된 동시성 API
+  - 시간이 오래 걸리는 작업은 Future를 반환하는 ExcutorService에게 맡기고 비동기로 다른 작업을 수행할 수 있다.
+  - Java 8 에서는 CompletableFuture 클래스를 통해 구현이 간결해졌다.
 
 
 
