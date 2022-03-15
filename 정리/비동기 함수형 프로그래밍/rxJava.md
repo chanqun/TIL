@@ -180,9 +180,21 @@ BiFunction<T, U, R>  |  (T, U) -> R
 
 ```java
 ClassName::static method
-
 (String s) -> Integer.parseInt(s)
 Integer::parseInt
+
+        
+ClassName::instance method
+(String s) -> s.lowerCase()
+
+
+object::instance method
+(int count) -> obj.getTotal(count)
+obj::getTotal
+
+
+CkassName::new
+() -> new Car()
 ```
 
 
