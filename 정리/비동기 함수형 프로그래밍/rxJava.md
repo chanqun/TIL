@@ -288,8 +288,20 @@ public static void main(String[] args) {
   - 새로운 데이터가 통지되면 현재 처리중이던 작업을 바로 중단함
 
 
+## 변환 연산자 (2)
+
+- groupBy
+  - GroupedByObservable로 만든다.
+  - 원본 Observable의 데이터를 그룹별로 묶는다기보다는 각각의 데이터들이 그룹에 해당하는 Key를 가지게 된다.
 
 
+- toList
+  - 통지 되는 데이터를 모두 리스트에 담겨서 한 번에 통지한다.
+  - Single로 통지된다.
+
+- toMap
+  - 통지 되는 데이터를 모두 맵에 담겨서 한 번에 통지한다.
+  - 첫 번째 반환값은 Map의 Key가 된다. (두 번째 optional 반환 값은 value)
 
 
 
