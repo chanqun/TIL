@@ -294,7 +294,6 @@ public static void main(String[] args) {
   - GroupedByObservable로 만든다.
   - 원본 Observable의 데이터를 그룹별로 묶는다기보다는 각각의 데이터들이 그룹에 해당하는 Key를 가지게 된다.
 
-
 - toList
   - 통지 되는 데이터를 모두 리스트에 담겨서 한 번에 통지한다.
   - Single로 통지된다.
@@ -304,9 +303,21 @@ public static void main(String[] args) {
   - 첫 번째 반환값은 Map의 Key가 된다. (두 번째 optional 반환 값은 value)
 
 
+## 데이터 결합 연산자
 
+- merge
+  - 다수의 Observable에서 통지된 데이터를 받아서 다시 하나의 Observable로 통지한다.
+  - 통지 시점이 빠른 데이터부터 시점이 같을 경우 먼저 지정된 Observable부터 통지된다.
 
+- concat
+  - 하나의 Observable 통지가 끝나면 다음 Observable에서 연이어서 통지가 된다.
 
+- zip
+  - 각 Observable에서 통지된 데이터가 모두 모이면 각 Observable에서 동일한 index의 데이터로 새로운 데이터를 생성한 후 통지
+  - 데이터 개수가 가장 적은 Observable의 통지 시점에 완료 시점을 맞춘다.
+
+- combineLatest
+  - 각 Observable에서 데이터를 통지할 때마다 모든 Observable에서 마지막으로 통지한 각 데이터를 함수형 인터페이스에 전달하고 새로운 데이터를 생성해 통지한다.
 
 
 
