@@ -319,8 +319,20 @@ public static void main(String[] args) {
 - combineLatest
   - 각 Observable에서 데이터를 통지할 때마다 모든 Observable에서 마지막으로 통지한 각 데이터를 함수형 인터페이스에 전달하고 새로운 데이터를 생성해 통지한다.
 
+  
+## 에러 처리 연산자
 
+rxJava 프로그래밍에서는 try catch 가 아닌 onError로 처리
 
+- onErrorReturn
+  - 에러가 발생했을 때 에러를 의미하는 데이터로 대체할 수 있다.
+  - onError 이벤트는 발생하지 않음
+
+- onErrorResumeNext
+  - 에러가 발생했을 때 에러를 의미하는 Observable로 대체할 수 있다.
+
+- retry
+  - 데이터 통지 중 에러가 발생했을 때, 데이터 통지를 재시도 한다.
 
 
 
