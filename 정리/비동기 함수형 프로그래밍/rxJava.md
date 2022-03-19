@@ -356,3 +356,31 @@ rxJava 프로그래밍에서는 try catch 가 아닌 onError로 처리
 - materialize / dematerialize
   - 통지된 데이터와 통지된 데이터의 통지 타입 자체를 Notification 객체에 담고 통지함
   - Notification 객체를 원래의 통지 데이터로 변환
+
+
+## 조건과 불린 연산자
+
+- all
+  - 통지되는 모든 데이터가 설정한 조건에 맞는지를 판단
+  - single로 반환함
+
+- amb
+  - 최초 통지 시점이 가장 빠른 Observable 데이터만 전달
+  - 나머지는 무시된다
+
+- contains
+  - 파라미터의 데이터가 Observable에 포함된어 있는지 판단
+  - 결과갚을 한번만 통지하면 되기때문에 true/false single로 반환
+
+- defaultIfEmpty
+  - 통지할 데이터가 없을 경우 파라미터로 입력된 값을 통지한다.
+
+- sequenceEqual
+  - 두 개의 생산자의 데이터가 같음을 확인
+
+
+## 데이터 집계 연산자
+
+
+
+
