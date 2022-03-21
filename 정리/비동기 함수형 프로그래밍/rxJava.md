@@ -319,7 +319,71 @@ public static void main(String[] args) {
 - combineLatest
   - 각 Observable에서 데이터를 통지할 때마다 모든 Observable에서 마지막으로 통지한 각 데이터를 함수형 인터페이스에 전달하고 새로운 데이터를 생성해 통지한다.
 
+  
+## 에러 처리 연산자
+
+rxJava 프로그래밍에서는 try catch 가 아닌 onError로 처리
+
+- onErrorReturn
+  - 에러가 발생했을 때 에러를 의미하는 데이터로 대체할 수 있다.
+  - onError 이벤트는 발생하지 않음
+
+- onErrorResumeNext
+  - 에러가 발생했을 때 에러를 의미하는 Observable로 대체할 수 있다.
+
+- retry
+  - 데이터 통지 중 에러가 발생했을 때, 데이터 통지를 재시도 한다.
+  - 에러가 발생한 시점에 통지에 실패한 데이터만 다시 통지되는 것이 아니라 처음부터 다시 통지
 
 
+## 유틸리티 연산
 
+- delay 첫 번째 유형
+  - 생산자가 데이터를 생성 및 통지를하지만 설정한 시간만큼 지연된 후에 제공한다.
+- delay 두 번째 유형
+  - 각각의 원본 데이터의 통지를 지연 시킨다.
+  
+- delaySubscription
+  - 생산자가 데이터의 생성 및 통지 자체를 설정한 시간만큼 지연시킨다.
+
+- timeout
+  - 각각의 데이터 통지 시, 지정된 시간안에 통지가 되지 않으면 TimeoutException을 통지
+
+- timeInterval
+  - 각각의 데이터가 통지되는데 걸린 시간을 통지한다.
+  - 통지된 데이터와 데이터가 통지되는데 걸린 시간을 소비자가 모두 처리할 수 있음
+
+- materialize / dematerialize
+  - 통지된 데이터와 통지된 데이터의 통지 타입 자체를 Notification 객체에 담고 통지함
+  - Notification 객체를 원래의 통지 데이터로 변환
+
+
+## 조건과 불린 연산자
+
+- all
+  - 통지되는 모든 데이터가 설정한 조건에 맞는지를 판단
+  - single로 반환함
+
+- amb
+  - 최초 통지 시점이 가장 빠른 Observable 데이터만 전달
+  - 나머지는 무시된다
+
+- contains
+  - 파라미터의 데이터가 Observable에 포함된어 있는지 판단
+  - 결과갚을 한번만 통지하면 되기때문에 true/false single로 반환
+
+- defaultIfEmpty
+  - 통지할 데이터가 없을 경우 파라미터로 입력된 값을 통지한다.
+
+- sequenceEqual
+  - 두 개의 생산자의 데이터가 같음을 확인
+
+
+## 데이터 집계 연산자
+
+- count
+  - 데이터의 총 개수를 통지
+
+- reduce
+  - 통지한 데이터를 이용해서 어떤 결과를 일정한 방식으로 합성한 후 최종 결과를 반환
 
