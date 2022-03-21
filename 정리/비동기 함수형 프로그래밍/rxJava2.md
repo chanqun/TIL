@@ -38,6 +38,25 @@
 병렬성 core, 동시성 thread
 
 
+## 스케줄러란?
+- rxJava에서의 스케줄러는 rxJava 비동기 프로그래밍을 위한 쓰레드 관리자
+- 어떤 스레드에서 무엇을 처리할 지에 대해서 제어할 수 있다.
+
+### 스케줄러의 종류
+Schedulers.io()
+- 쓰레드 풀에서 쓰레드를 가져오거나 가져올 쓰레드가 없으면 새로운 쓰레드를 생성한다.
+
+Schedulers.computation()
+- 논리적인 연산 처리 시, 사용하는 스케줄러
+- CPU 코어의 물리적 쓰레드 수를 넘지 않는 범위에서 쓰레드를 생성한다.
+
+Schedulers.newThread()
+- 요청시마다 새로운 쓰레드를 생성
+
+```java
+.subscribeOn(Schedulers.io())
+.observeOn(Schedulers.computation())
+```
 
 
 
