@@ -58,5 +58,15 @@ Schedulers.newThread()
 .observeOn(Schedulers.computation())
 ```
 
+## 스케줄러의 종류 2
+Schedulers.trampoline()
+- 현재 실행되고 있는 쓰레드에 큐를 생성하여 처리
+
+Schedulers.single()
+- 단일 쓰레드 생성
+
+Schedulers.from(executor)
+- executor를 사용해서 생성한 쓰레드를 사용한다.
+
 
 
