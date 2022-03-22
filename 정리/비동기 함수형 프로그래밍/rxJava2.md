@@ -95,3 +95,19 @@ Schedulers.from(executor)
 - doOnCancel / doOnDisposal
   - 소비자가 구독을 해지하는 시점에, 지정된 작업을 처리할 수 있다.
   - 완료나 에러로 종료 될 경우에는 실행되지 않는다.
+
+- doAfterNext
+  - 생산자가 통지한 데이터가 소비자에 전달된 직후 호출되는 함수
+
+- doOnTerminate
+  - 완료 또는 에러가 통지 될 때 호출 되는 함수
+
+- doAfterTerminate
+  - 완료 또는 에러가 통지된 후 호출 되는 함수
+
+- doFinally
+  - 구독이 취소 된 후, 완료 또는 에러가 통지된 후 호출되는 함수
+
+- doOnLifecycle
+  - 소비자가 구독할 떄 또는 구독 해지할 때 호출되는 함수
+
