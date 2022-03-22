@@ -81,6 +81,17 @@ Schedulers.from(executor)
 
 - doOnNext
   - 생산자가 데이터를 통지하는 시점에, 지정된 작업을 처리할 수 있다.
+  
+- doOnComplete
+  - 생산자가 완료를 통지하는 시점에, 지정된 작업을 처리할 수 있다.
 
+- doOnError
+  - 생산자가 에러를 통지하는 시점에, 지정된 작업을 처리할 수 있다.
 
+- doOnEach
+  - notification 객체에서 전부 제공
+  - doOnNext, doOnComplete, doOnError를 한 번에 처리할 수 있다.
 
+- doOnCancel / doOnDisposal
+  - 소비자가 구독을 해지하는 시점에, 지정된 작업을 처리할 수 있다.
+  - 완료나 에러로 종료 될 경우에는 실행되지 않는다.
