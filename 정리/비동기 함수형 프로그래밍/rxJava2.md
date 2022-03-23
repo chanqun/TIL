@@ -124,3 +124,21 @@ Schedulers.from(executor)
 
 - blockingLast
   - 생산자가 통지한 마지막 데이터를 반환한다.
+
+- blockingSingle
+  - 생산자가 한 개의 데이터를 통지하고 완료되면 해당 데이터를 반환한다.
+  - 2개 이상의 데이터를 통지할 경우 IllegalArgumentException
+
+- blockingGet
+  - 생산자가 0개 또는 1개의 데이터를 통지하고 완료되면 해당 데이터를 반환한다.
+
+- blockingIterable
+  - 생산자가 통지한 모든 데이터를 받을 수 있는 Iterable을 얻게 한다.
+
+- blockingForEach
+  - 생산자가 통지한 데이터를 순차적으로 모두 통지한다.
+  - 통지된 각각의 데이터가 모두 조건에 맞아야 true
+
+- blockingSubscribe
+  - 통지된 원본 데이터를 호출한 원본 쓰레드에서 부수적인 처리를 할 수 있도록 해준다.
+  - 소비자가 전달 받은 데이터로 어떤 부수적인 처리 할 때 이 처리 결과를 테스트 할 수 있다.
