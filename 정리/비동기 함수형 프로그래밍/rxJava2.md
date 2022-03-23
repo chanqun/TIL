@@ -111,3 +111,16 @@ Schedulers.from(executor)
 - doOnLifecycle
   - 소비자가 구독할 떄 또는 구독 해지할 때 호출되는 함수
 
+
+## 테스트
+
+- 테스트를 위한 blockingXXX 함수
+  - 비동기 처리 결과를 테스트하려면 현재 쓰레드에서 호출 대상 쓰레드의 실행 결과를 반환 받을때까지 대기할 수 있어야한다.
+- rxJava에서는 현재 쓰레드에서 호출 대상 쓰레드의 처리 결과를 받을 수 있는 blockingXXX 함수를 제공
+
+
+- blockingFirst
+  - 생산자가 통지한 첫번쨰 데이터를 반환한다.
+
+- blockingLast
+  - 생산자가 통지한 마지막 데이터를 반환한다.
