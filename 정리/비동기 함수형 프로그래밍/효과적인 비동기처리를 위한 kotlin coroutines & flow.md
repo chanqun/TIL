@@ -29,3 +29,27 @@
 콜백과 rxJava가 어느 정도 해결했다
 
 
+#### 코루틴 빌더
+```kotlin
+fun main() = runBlocking {
+    println(Thread.currentThread().name)
+    println("Hello")
+}
+```
+
+BlockingCoroutine은 CoroutineScope의 자식
+
+#### 코루틴 컨텍스트
+코루틴 스코프는 코루틴을 제대로 처리하기 위한 정보
+```kotlin
+println(coroutineContext)
+
+launch {
+}
+
+delay(500L)
+```
+
+
+
+
