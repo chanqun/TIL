@@ -75,3 +75,59 @@ fun main() {
 
 suspend - 중단 가능한 함수 다른 코루틴이나 suspend 함수를 호출 할 수 있다.
 
+## 구조화된 동시성
+
+launch는 반드시 coroutine 안에서 수행해야함
+
+밖에서 coroutine block이 있어야함
+
+```kotlin
+suspend fun doOneTwoThree() = coroutineScope { // this: 코루틴 : 자식 코루틴이 다 끝날때까지 기다린다.
+    val job = launch { // this: 코루틴  receiver 수신객체이다
+        // 자식으로서 새로운 코루틴이 만들어진다.
+    }
+
+    job.join() // suspension point
+  
+    launch {
+
+    }
+
+    launch {
+
+    }
+}
+
+fun main() = runBlocking {
+    doOneTwoThree()
+}
+
+```
+
+
+코루틴은 협력적으로 동작하기 대문에 여러 코루틴을 만드는 것이 큰 비용이 들지 않는다.
+10만개의 간단한 일을 하는 코루틴도 큰 부담이 아니다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
