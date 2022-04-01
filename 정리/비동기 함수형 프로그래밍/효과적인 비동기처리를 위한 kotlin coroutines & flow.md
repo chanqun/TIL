@@ -88,7 +88,7 @@ suspend fun doOneTwoThree() = coroutineScope { // this: 코루틴 : 자식 코�
     }
 
     job.join() // suspension point
-  
+
     launch {
 
     }
@@ -104,15 +104,46 @@ fun main() = runBlocking {
 
 ```
 
+코루틴은 협력적으로 동작하기 대문에 여러 코루틴을 만드는 것이 큰 비용이 들지 않는다. 10만개의 간단한 일을 하는 코루틴도 큰 부담이 아니다.
 
-코루틴은 협력적으로 동작하기 대문에 여러 코루틴을 만드는 것이 큰 비용이 들지 않는다.
-10만개의 간단한 일을 하는 코루틴도 큰 부담이 아니다.
+### 취소와 타임아웃
 
+명시적인 job에 대해 취소를 할 수 있음
 
+```kotlin
+suspend fun doOneTwoThree() = coroutineScope {
+    val job = launch {
+    }
 
+    job.cancel()
+}
+```
 
+취소 불가능한 job
 
+launch(Dispatchers.Default)는 그 다음 코드 블록을 다른 스레드에서 수행을 시킨다.
 
+```kotlin
+suspend fun doCount() = coroutineScope {
+    val job1 = launch(Dispatchers.Default) {
+        var i = 1
+
+        while (i <= 10 && isActive) {
+            i++
+            println("count $i")
+        }
+    }
+
+//    job1.cancel()
+//    job1.join()
+
+    job1.cancelAndJoin()
+
+    println("doCount done!")
+}
+```
+
+cancel + join -> cancelAndJoin
 
 
 
