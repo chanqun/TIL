@@ -146,10 +146,46 @@ suspend fun doCount() = coroutineScope {
 cancel + join -> cancelAndJoin
 
 
+### finally 를 같이 사용
+
+suspend 함수들은 JobCancellationException 를 발생하기 때문에 표준 try catch finally로 대응할 수 있다.
 
 
+#### 취소 불가능한 코드
+```kotlin
+withContext(NonCancellable) {
+}
+```
+
+#### 타임 아웃
+일정 시간이 끝난 후에 종료하고 싶으면 
+
+```kotlin
+withTimeout(500L)
+```
+
+#### withTimeoutOrNull
+작업이 성공하면 끝 실패하면 null을 리턴한다.
 
 
+#### 서스펜딩 함수
+
+async 키워드를 이용하면 동시에 다른 블록을 수행할 수 있다. launch와 비슷하게 보이지만 수행 결과를 await키워드를 통해 받을 수 있다는 차이가 있다.
+
+결과를 받아야 한다면 async 결과를 받을 필요 없으면 launch
+결과를 받으려면 await 을 사용하기만 하면 알아서 처리된다.
+
+늦게 시작하는 이런 것도 있다.
+```kotlin
+val value1 = async(start = CoroutineStart.LAZY) { getRandom1() }
+
+value1.start() // 큐에 실행 예약을 한다.
+```
+
+### 예외처리
+코드를 수행하다 보면 예외가 발생할 수 있다. 예외가 발생하면 위쪽의 코루틴 스코프와 아래쪽의 코루틴 스코프가 취소됩니다.
+
+다른 형제가 문제가 생기면 나와 부모가 cancel 된다.
 
 
 
