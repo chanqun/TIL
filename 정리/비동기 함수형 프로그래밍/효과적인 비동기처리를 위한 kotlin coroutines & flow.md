@@ -243,7 +243,46 @@ launch {
 ```
 
 
+### CEH와 슈퍼바이저 잡
 
+#### GlobalScope
+
+GlobalScope는 어떤 계층에도 속하지 않고 영원히 동작하게 된다는 문제점이 있다.
+
+#### CoroutineScope
+인자로 CoroutineContext를 받는데 코루틴 엘리먼트를 하나만 넣어도 좋고 다른 것을 넣어서 조합해도 좋다.
+
+
+#### CHE (Coroutine Exception Handler)
+
+```kotlin
+val ceh = CoroutineExceptionHandler { _, exception ->
+    println("Something happen : $exception")    
+}
+
+fun main() = runBlocking<Unit> {
+    val scope = CoroutineScope(Dispatchers.IO)
+    val job = scope.launch(ceh) {
+        launch { printRandom1() }
+        launch { printRandom2() }
+    }
+    job.join
+}
+```
+
+runBlocking에서는 CEH를 사용할 수 없다.
+
+SupervisorJob() 에러가 발생하면 아래쪽으로만 가도록 할 수 있다.
+
+
+#### SupervisorScope
+
+```kotlin
+suspend fun supervisordFunc() = supervisorScope {
+    launch {}
+    launch(ceh) {} // supervisorScope 내에서 처리하지 않으면 위로 전파 된다.
+}
+```
 
 
 
