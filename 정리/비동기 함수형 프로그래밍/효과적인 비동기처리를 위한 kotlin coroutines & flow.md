@@ -284,7 +284,63 @@ suspend fun supervisordFunc() = supervisorScope {
 }
 ```
 
+### 뮤텍스
 
+상호배제의 줄임말 (Mutex exclusion)
+- 공유 상태를 수정할 때 임계 영역을 이용하게 되며, 임계 영역을 동시에 접근하는 것을 허용하지 않는다.
+
+```kotlin
+val mutex = Mutex()
+
+fun main() = runBlocking {
+    withContext(Dispatchers.Default) {
+        massiveRun {
+            mutex.withLock {
+                couter++
+            }
+        }
+    }
+}
+```
+
+### 액터
+
+액터가 독점적으로 자려를 가지며 다른 코루틴과 공유하지 않고 액터를 통해서만 접근하게 만든다.
+
+```kotlin
+sealed class CounterMsg
+object IncCounter : CounterMsg()
+class GetCounter(val response: CompletableDeffered<Int>) : CouterMsg()
+
+
+fun CoroutineScope.counterActor() = actor<CouterMsg> {
+    var counter = 0
+  
+    for (msg in channel) {
+        when (msg) {
+            is IncCounter -> counter++
+            is GetCounter -> msg.response.complete(counter)
+        }
+    }
+}
+
+fun main() = runBlocking<Unit> {
+    val counter = counterActor()
+    
+    withContext(Dispatchers.Default) {
+        massiveRun {
+            counter.send(IncCounter)
+        }
+    }
+  
+    val response = CompletableDeffered<Int>()
+    counter.send(GetCounter(response))
+    println("Counter = ${response.await()}")
+    counter.close()
+}
+```
+
+채널은 송신 측에서 값을 send 할 수 있 수신 측에서 receive를 할 수 있는 도구이다.
 
 
 
