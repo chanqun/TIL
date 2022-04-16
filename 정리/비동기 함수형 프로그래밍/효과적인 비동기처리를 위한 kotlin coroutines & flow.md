@@ -342,17 +342,82 @@ fun main() = runBlocking<Unit> {
 
 채널은 송신 측에서 값을 send 할 수 있 수신 측에서 receive를 할 수 있는 도구이다.
 
+## 비동기 데이터 스트림
 
+### 플로우 기초
 
+Flow는 코틀린에서 쓸 수 있는 비동기 스트림
 
+```kotlin
+fun flowSomething(): Flow<Int> = flow {
+    repeat(10) {
+        emit(Random.nextInt(0, 500))
+        delay(10L)
+    }
+}
 
+fun main() = runBlocking {
+    flowSomething().collect { value ->
+        println(value)
+    }
+}
+```
+콜드 스트림임
+요청하면 주기 시작함
 
+#### 플로우 취소
+````kotlin
+withTimeoutOrNull(500L) {}
+````
+#### flowOf, asFlow
+````kotlin
+flowOf(1, 2, 3)
 
+(1..3).asFlow()
+````
 
+### 플로우 연산
 
+map, filter, filterNot 있음
 
+transForm
+```kotlin
+suspend fun someCalc(i: Int): Int {
+    return i * 2
+}
 
+fun main() = runBlocking<Unit> {
+    (1..20).asFlow().transform {
+        emit(it)
+        emit(someCalc(it))    
+    }.collect {
+        println(it)
+    }
+    
+}
+```
 
+### takeWhile
+````kotlin
+.takeWhile {
+  it < 15
+}
+````
+조건을 만족하는 동안만 가져온다 
+
+### drop, dropWhile
+
+### reduce 연산자
+첫번째 값을 결과에 넣은 각 값을 가져와 누진적으로 계산하는 것
+
+### fold
+fold 연산자는 초기값이 있는 reduce와 같다
+
+### count 연산자
+
+count 종단 연산자, terminal operator 특정 값, 컬렉션, 결과
+
+filter 같은 것은 중간 연산자. 결과 X collect를 써야한다.
 
 
 
