@@ -419,5 +419,19 @@ count 종단 연산자, terminal operator 특정 값, 컬렉션, 결과
 
 filter 같은 것은 중간 연산자. 결과 X collect를 써야한다.
 
+### 플로우 컨텍스트
+플로우 내에서는 컨텍스트 바꿀 수 없음
 
 
+```kotlin
+fun simple(): Flow<Int> = flow {
+    for (i in 1..10) {
+        emit(i)
+    } // 업스트립
+}
+.flowOn(Dispatcher.Default)
+.map { // 다운 스트림 : 상대적인 것 flowOn 이동해서 바꿀 수 있음
+    it * 2
+}
+
+```
