@@ -473,7 +473,7 @@ fun main() = runBlocking<Unit> {
     val nums = (1..3).asFlow()
     val strs = flowOf("일", "이", "삼")
   
-    nums.combine(strs) { a, b -> "{a}는 $b"}
+    nums.combine(strs) { a, b -> "${a}는 $b"}
       .collect { println(it) }
 }
 ```
@@ -485,8 +485,37 @@ fun main() = runBlocking<Unit> {
 데이터가 짝을 이룰 필요없이 최신의 데이터를 이용해 가공해야 하는 경우 사용할 수 있음
 
 
+### 플로우 플래트닝하기
+
+flatMapConcat, flatMapMerge, flatMapLatest
+
+flatMapConcat은 첫번째 요소에 대해서 플레트닝을 하고 나서 두번재 요소를 한다.
+
+```kotlin
+fun requestFlow(i: Int): Flow<String> = flow {
+    emit("$i: First")
+    delay(500)
+    emit("$i: First")
+}
+
+fun main() = runBlocking<Unit> {
+    val startTime = System.currentTimeMillis()
+    (1..3).asFlow().onEach { delay(100) }
+      .flatMapConcat {
+          requestFlow(it)
+      }
+      .collect { value ->
+          println()
+      }
+}
+```
 
 
+flatMapMerge
+첫 요소의 플레트닝을 시작하며 이어 다음 요소의 플레트닝을 시작한다.
+
+flatMapLatest
+1,2 가다가 그냥 취소하고 3번째 것만 진행함
 
 
 
