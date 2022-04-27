@@ -435,3 +435,31 @@ fun simple(): Flow<Int> = flow {
 }
 
 ```
+### 플로우 버퍼링
+
+#### buffer
+buffer로 버퍼를 추가해 보내는 측이 더 이상 기다리지 않게 한다.
+
+```kotlin
+fun main() = runBlocking<Unit> {
+    val time = measureTimeMills {
+        simple().buffer()
+          .collect { value ->
+                delay(300)
+                println(value)
+          }
+    }
+}
+```
+보내는 쪽은 거의 기다릴 필요 없음
+
+#### conflate
+
+conflate를 이용하면 중간의 값을 융합할 수 있다 - 중간의 값을 버릴 수 있음
+
+#### collectLatest
+첫번째 값을 받고 다른 값을 받으면 계속 리셋된다.
+
+
+### 플로우 결합하기
+
