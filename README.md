@@ -24,7 +24,7 @@ TDD사이클은
 
 [Computer Science](https://github.com/cksgns93/ComputerScience)  
 
-### react
 
+### RN
 
-### rust
+### GO
