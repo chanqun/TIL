@@ -136,3 +136,12 @@ eslint-plugin-prettier: Prettier를 사용해 포맷팅을 하도록 ESLint 규�
     "endOfLine": "lf"
 }
 ```
+
+
+### 2일차 React Router Dom 및 Context 구성하고 Hello World!
+
+React Router Dom
+
+jsx, tsx 문법을 쓰면 기본적으로 html 태그처럼 사용하게 된다.
+
+Routes 페이지가 바뀌는 블럭
