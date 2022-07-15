@@ -145,3 +145,8 @@ React Router Dom
 jsx, tsx 문법을 쓰면 기본적으로 html 태그처럼 사용하게 된다.
 
 Routes 페이지가 바뀌는 블럭
+
+emotion
+```
+yarn add @emotion/react
+```
