@@ -13,7 +13,7 @@ SRP를 지키면 응집도가 높아진다.
 
 STRATEGY pattern: client is both open and closed.
 
-![img](./image/oop1.png)
+![img](../image/oop1.png)
 
 client 코드를 고칠 필요 없이 Server을 변경 가능하다.
 interface에만 의존하기 때문에 코드가 바뀌지 않는다.
@@ -38,7 +38,7 @@ UserService - UserFinder, UserRegistrator
 High-level modules should not depend on low-level modules. Both should depend on abstractions
 Abstractions should not depend upon details. Details should depend upon abstractions.
 
-![img](./image/oop2.png)
+![img](../image/oop2.png)
 
 UserEncryptor 은 common에 Jasypt는 api에 있다.
 상위레벨은 하위레벨에 의존하지 않게하고 추상화에만 의존하게 한다.
