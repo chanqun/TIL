@@ -247,6 +247,21 @@ guest -> front desk -> cleaning, restaurant
 - 단점
     - 중재자 역할을 하는 클래스의 복잡도와 결합도가 증가한다.
 
+ExecutorService, Executor, DispatcherServlet
+
+### 메멘토 패턴
+캡슐화를 유지하면서 객체 내부 상태를 외부에 저장하는 방법
+- 객체 상태를 외부에 저장했다가 해당 상태로 다시 복구할 수 있다.
+
+Serializable object -> byte -> object
+일종의 메멘토일뿐
+
+직렬화를 사용하려면 더 많은 공부가 필요함
+
+
+
+
+
 
 
 
