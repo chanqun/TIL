@@ -54,4 +54,46 @@ the system deletes the reservation and the seats become available for other regi
 4. Acknowledgement of the success or failure of the payment.
 
 
+## Journey 3 - Orders and Registration Bounded Context
+
+### Domain
+- attendee
+- registrant
+- user
+- seat assignment
+- order
+- order item
+- seat
+- reservation
+- seat availability
+- conference site
+
+### Pattern and concepts
+
+1. two separate aggregates
+2. a single aggregate
+3. using a process manager
+
+first not use event sourcing
+
+> the system must
+> check that sufficient seats are available
+> record detail of the registration
+> update the total number of seats booked for the conference
+
+Validation, Transaction Boundaries, Concurrency, Aggregate and aggregate roots 
+
+### High level architecture
+1. Querying the read model
+2. issuing commands -> asynchronously and once only to a single recipient
+3. handling commands
+4. initiating business logic in the domain
+5. persisting the changes
+6. polling the read model
+
+### Impact on testing
+
+We might have a set of tests that we can use to test our domain objects, and all of those tests might be passing.
+We might also have a set of tests to verify that our ORM layer can save and retrieve objects successfully.
+
 
