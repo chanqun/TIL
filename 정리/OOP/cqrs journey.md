@@ -1,11 +1,18 @@
 # CQRS Journey
 
+CQRS
+Martin Fowler -> 읽기 모델, 쓰기 모델을 분리하는 것?
+Greg Young -> 읽기 담당 오브젝트, 쓰기 담당 오브젝트를 분리하는 것
+
+
 The CQRS Pattern and event sourcing are not mere simplistic solutions to the problems associated with large-scale,
 distributed systems.
 
 ## Journey 1 - Our Domain: Conference Management System
 
-DDD는 써봄, CQRS는 경험해본 사람은 없음
+multi-tenancy 여러 고객에게 서비스를 제공하는 아키텍처
+
+DDD는 써봄, CQRS는 경험해본 사람은 없다고 가정
 
 ### Overview of the system
 - Manage the sale of different seat types for the conference
@@ -28,7 +35,7 @@ Flexibility,
 - Context Map
 
 ### Bounded contexts in the conference management system
-#### Order and Registration
+#### Order and Registration (CQRS/ES)
 - Order
   - reservation, payment, registration items (order 1 : N orderItems)
 - Reservation
@@ -36,12 +43,12 @@ Flexibility,
 - If the registrant does not pay for the tickets with 15 minutes, 
 the system deletes the reservation and the seats become available for other registrants to reserve 
 
-#### Conference Management
+#### Conference Management (CRUD)
 - The name, description, and slug
 - The start and end dates of the conference
 - The different types and quotas of seats available at the conference
 
-#### Payment
+#### Payment (CQRS)
 
 #### Discount Policy, Occasionally Disconnected, Submissions and schedule
 
@@ -91,9 +98,14 @@ Validation, Transaction Boundaries, Concurrency, Aggregate and aggregate roots
 5. persisting the changes
 6. polling the read model
 
+command model
+command > fire and forget
+
+
 ### Impact on testing
 
 We might have a set of tests that we can use to test our domain objects, and all of those tests might be passing.
 We might also have a set of tests to verify that our ORM layer can save and retrieve objects successfully.
 
 
+## Journey 4
