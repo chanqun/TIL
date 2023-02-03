@@ -3,7 +3,6 @@
 
 
 ### kotlin + spring boot + jpa
-
 [TDD](https://github.com/cksgns93/TDD)  
 [Kotlin](https://github.com/cksgns93/KotlinInAction)  
 [스프링 시큐리티](https://github.com/cksgns93/SpringSecurity)  
@@ -21,10 +20,4 @@ TDD사이클은
 
 
 ### CS
-
 [Computer Science](https://github.com/cksgns93/ComputerScience)  
-
-
-### RN
-
-### GO
