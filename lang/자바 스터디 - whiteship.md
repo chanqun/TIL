@@ -17,14 +17,41 @@ runtime 영역에 JIT(just-in-time) 컴파일러 스레드가 돌고 있다가 i
   - JIT 컴파일러(Just-in-Time)
   - 가비지 콜렉터(Garbage collector)
 - 런타임 데이터 영역 (Runtime Data Area)
-  - Thread(pc, jvm, stack, native method stack) : 프로그램 실행과정에서 임시로 할당되었다가 메소드를 빠져나가면 바로 소멸되는 특성의 데이터를 저장하기 위한 영역이다. 각종 형태의 변수나 임시 데이터, 스레드나 메소드의 정보를 저장한다.
+  - Thread(PC Register, jvm, stack, native method stack) : 프로그램 실행과정에서 임시로 할당되었다가 메소드를 빠져나가면 바로 소멸되는 특성의 데이터를 저장하기 위한 영역이다. 각종 형태의 변수나 임시 데이터, 스레드나 메소드의 정보를 저장한다.
   - Heap(Eden, Survivor 0, Survivor 1, Old, Permanent)
     - Permanent : 생성된 객체들의 정보의 주소값이 저장된 공간이다. 클래스 로더에 의해 load 되는 Class, Method 등에 대한 Meta 정보가 저장되는 영역이고 JVM에 의해 사용된다.
       Reflection을 사용하여 동적으로 클래스가 로딩되는 경우에 사용된다.
   - Method Area(Runtime Constant Pool) : 클래스 정보를 처음 메모리 공간에 올릴 때 초기화되는 대상을 저장하기 위한 메모리 공간, 상수 자료형을 저장하여 참조하고 중복을 막는 역할을 수행한다.
 
 
-
 ### JDK, JRE
 9부터는 jdk만 나옴
 jdk에 jre 들어있음
+
+### int a = 10;
+한 줄 처럼 보이지만 javap로 보면 두 줄이기 때문에 멀티 스레드 환경에서 문제가 발생할 수 있다.
+
+
+
+## 2주차
+
+### primitive type
+boolean(1byte), char(2byte), byte(byte), short(2byte), int(4byte), long(8byte), float(4byte), double(8byte)
+
+### Literal
+1_000_000, 0, 0x, 0b, L, E-4 
+
+### reference type
+String, Array, Collections, Class, Interface
+
+### 변수의 스코프와 라이프타임 - 로딩시점이 다름
+- 클래스 변수 : static은 클래스 로딩 시점
+- 인스턴스 변수
+- 지역 변수
+
+### 배열
+배열이란 선형 자료 구조 중 하나로, 동일한 타입의 연관된 데이터를 메모리에 연속적으로 저장하여 하나의 변수에 묶어서 관리하기 위한 자료구조이다.
+
+### 타입추론
+지역변수를 선언할 때 초깃값을 통하여 데이터 타입을 추론하게 한다.
+var 는 초기값이 있는 지역 변수로만 선언 가능하다.
