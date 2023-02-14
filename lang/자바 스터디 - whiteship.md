@@ -99,3 +99,19 @@ int mid = (start + end) >>> 1; //양수만 됨
 
 배열에서 한 번만 들어간 숫자 찾기 XOR로 풀기 교환법칙 성립함 O(n)으로 풀 수 있음
 
+
+## 4주차
+
+### 제어문
+if, switch, for, while, do-while, for each
+
+### LinkedList, Stack, Queue
+
+offer, add
+poll, remove
+peek, element
+
+익셉션 에러 유무 차이: 일관성을 유지하는 것이 중요하다.
+
+### Replace Conditional with Polymorphism
+
