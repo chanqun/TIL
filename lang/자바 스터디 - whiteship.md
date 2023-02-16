@@ -283,4 +283,33 @@ catch 블럭에 자동으로 생성해주는 것임 Throwable
 
 hello > close > finally
 
+## 10주차 멀티스레드 프로그래밍
 
+### Thread 클래스와 Runnable 인터페이스
+
+JVM은 다음중 하나가 발생할때 까지 쓰레드를 유지한다.
+
+Runtime 클래스의 종료 메소드가 호출되었으며 보안관리자(security manager)가 종료 조작이 발생하도록 허용할 때
+데몬 쓰레드가 아닌 모든 쓰레드는 실행된 후 run() 메소드의 작업이 끝나거나 run 메소드 이외에서 예외를 throw 했을 때 종료된다.
+
+Thread 상속 받아야하는 경우 > run 이외에 메소드를 override 할 필요가 있는 경우
+아니면 implements Runnable
+
+> Thread는 서버의 리소스를 극한으로 사용할 때 사용한다. (우리가 쓰는 서버 컨테이너가 대신 해줌 : tomcat, jetty, netty, undertow)
+> connection pool (요즘은 코어 개수 만큼 만들고 blocking 될 만 한 것들은 asynchronous 처리함)
+
+daemon thread는 부모 끝나면 끝남
+
+한 쓰레드가 진행 중인 작업을 다른 쓰레드가 간섭하지 못하도록 막는 것을 쓰레드의 동기화(synchronization)
+
+atomic 한 것들은 do while 코드가 들어있음
+volatile 은 메인 메모리에서 가져옴 안 쓰면 cache 되는 것을 가져옴 ! 한 thread만 write하는 가정이 있어야 함 
+
+### critical path
+동시에 실행하는 것 중 가장 오래 걸리는 것
+
+### race condition
+공유하는 자원이 있고 접근하는 순서에 따라 결과가 달라지는 경우
+
+visualVM 에서 Thread Dump 제공 
+메모리 스냅샷 heap dump -> jvm 메모리 만큼 내 컴퓨터에도 메모리 있긴 해야함
