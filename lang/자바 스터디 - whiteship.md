@@ -194,6 +194,56 @@ super 사용하면 서브클래스가 수퍼클래스에 접근이 가능하다.
 ### 더블 디스패치
 visitor 패턴
 
+```java
+interface Post {
+    void postOn(SNS sns);
+}
+
+class Text implements Post {
+    @Override
+    public void postOn(SNS sns) {
+        sns.post(this);
+    }
+}
+
+class Picture implements Post {
+    @Override
+    public void postOn(SNS sns) {
+        sns.post(this);
+    }
+}
+
+interface SNS {
+    void post(Text text);
+
+    void post(Picture picture);
+}
+
+class FaceBook implements SNS {
+    @Override
+    public void post(Text text) {
+        System.out.println("facebook " + "text");
+    }
+
+    @Override
+    public void post(Picture picture) {
+        System.out.println("facebook " + "picture");
+    }
+}
+
+class Instagram implements SNS {
+    @Override
+    public void post(Text text) {
+        System.out.println("Instagram " + "text");
+    }
+
+    @Override
+    public void post(Picture picture) {
+        System.out.println("Instagram " + "picture");
+    }
+}
+
+```
 
 ## 7주차 패키지
 
