@@ -268,3 +268,19 @@ javac, java때 다 사용가능
 interface 에서 변수 선언하면
 static final 붙음 -> 안티패턴임
 
+
+## 9주차 예외
+
+Runtime은 복구가 어려운 경우
+Checked는 우리가 무언가 처리를 할 수 있는 경우
+
+기존에 익셉션을 잘 참고해서 추가하자,
+최초에 예외가 아니고 변환하는 것이면 e를 잘 담아서 던지자
+예외는 stackTrace를 담기 때문에 비싼 작업
+
+### try with resources - kotlin은 use
+catch 블럭에 자동으로 생성해주는 것임 Throwable
+
+hello > close > finally
+
+
