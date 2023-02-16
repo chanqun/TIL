@@ -1,5 +1,5 @@
 
-## 1주차
+## 1주차 JVM
 
 ### java compile option
 javac 입력시
@@ -33,7 +33,7 @@ jdk에 jre 들어있음
 
 
 
-## 2주차
+## 2주차 데이터 타입
 
 ### primitive type
 boolean(1byte), char(2byte), byte(byte), short(2byte), int(4byte), long(8byte), float(4byte), double(8byte)
@@ -56,7 +56,7 @@ String, Array, Collections, Class, Interface
 지역변수를 선언할 때 초깃값을 통하여 데이터 타입을 추론하게 한다.
 var 는 초기값이 있는 지역 변수로만 선언 가능하다.
 
-## 3주차
+## 3주차 연산자
 
 ### 산술 연산자
 
@@ -100,7 +100,7 @@ int mid = (start + end) >>> 1; //양수만 됨
 배열에서 한 번만 들어간 숫자 찾기 XOR로 풀기 교환법칙 성립함 O(n)으로 풀 수 있음
 
 
-## 4주차
+## 4주차 제어문
 
 ### 제어문
 if, switch, for, while, do-while, for each
@@ -116,7 +116,7 @@ peek, element
 ### Replace Conditional with Polymorphism
 
 
-## 5주차
+## 5주차 클래스
 
 자바는 call by value 0x001 이런것 넘어감
 
@@ -173,7 +173,7 @@ volatile
 class에 대부분이 reflection
 Class.forName("com.a.x").class.getDeclaredFields(); 
 
-## 6주차
+## 6주차 상속
 
 상속 - 점선, 구현 - 실선
 
@@ -194,4 +194,27 @@ super 사용하면 서브클래스가 수퍼클래스에 접근이 가능하다.
 ### 더블 디스패치
 visitor 패턴
 
+
+## 7주차 패키지
+
+FQCN(Fully Qualified Class Name)
+
+- java 자바 기본
+- javax 자바 확장
+- org 비영리 (오픈소스)
+- com 일반적 영리 (회사)
+
+
+### classpath
+JVM이 프로그램을 실행할 때, 클래스파일을 찾는 데 클래스 패스를 사용한다.
+javac, java때 다 사용가능
+
+(내가 읽으려는 파일이 부모한테 있는지 묻고 쓴다.)
+- Bootstrap Class Loader - 최상위 클래스 로더, jre/lib/rt.jar String이나 object 같은 것을 메모리에 적재해줌
+- Extension Class Loader - java.ext.dirs 환경 변수로 지정된 폴더에 있는 클래스 파일을 로딩
+- System Class Loader - 우리가 만든 class를 메모리에 올리는 역할을 한다. classpath 기준으로 로드
+  
+
+interface 에서 변수 선언하면
+static final 붙음 -> 안티패턴임
 
