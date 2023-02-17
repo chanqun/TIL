@@ -220,3 +220,8 @@ aggregate을 완전 분리 command processor을 통해서 옮겼음
 기존 service 어떻게 보면 application
 order db에 넣고 seat availability -> event를 받아서 aggregate 불러서 처리
 
+
+이벤트 소싱 - 버저닝 관점에서 v2가 생겼을 때 이벤트 들을 실행하며 다른 요구사항을 만족시키며 v1을 만족할 수 있음
+[이벤트 소싱](https://www.youtube.com/watch?v=Yd7TXUdcaUQ)
+
+(카프카에서 이벤트가 큐에 얼마나 머물렀는지 분석해서 성능 개선도 가능함)
