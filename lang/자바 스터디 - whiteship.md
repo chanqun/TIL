@@ -313,3 +313,18 @@ volatile 은 메인 메모리에서 가져옴 안 쓰면 cache 되는 것을 가
 
 visualVM 에서 Thread Dump 제공 
 메모리 스냅샷 heap dump -> jvm 메모리 만큼 내 컴퓨터에도 메모리 있긴 해야함
+
+
+## 11주차 enum
+
+enum을 extends 하고 있음
+
+타입 세이프티
+컴파일 시점에 확인 가능
+```java
+Comany.BANANA == Fruit.BANANA
+```
+
+> EnumSet.allOf(Fruit.class);
+> static한 내부에 regular, jumbo 가 숨어 있다.
+
