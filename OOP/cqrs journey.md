@@ -196,4 +196,27 @@ The team had the following goals for their acceptance testing approach:
 domain expert could understand.
 • It should be possible to execute the acceptance tests automatically.
 
+MIL 이벤트 추적 DSL
+
+command는 bounded context 안에서 하는 경우가 많으므로 in memory queue를 사용하는 것은 어떤가(서버 내려가면 사라짐 - spring은 destory hook 도 있음)
+메시지 버스를 태우면 전달까지는 기록됨
+
+
+> 서버를 다르게 함으로써 대용량이 필요한 곳에서 대용량 처리를 함
+> retry 하는 코드가 일괄적으로 필요함
+> 
+> cqrs하다가 개발 생산성이 떨어질 수 있지 않나
+
+비정규화한 테이블을 따로 만들어야 한다.
+aggregate 쪽에서 완료하는 이벤트를 던지면 그 이벤트를 받아서
+
+! 읽기 모델에 save 명령이 있음 빠르게 읽어서 쓰기 모델에 요청함
+! 어드민에 가공해서 데이터를 설정하고 사용하는 경우도 있음 [EagerReadDerivation](https://martinfowler.com/bliki/EagerReadDerivation.html)
+! [이벤트 소싱 패턴](https://learn.microsoft.com/ko-kr/azure/architecture/patterns/event-sourcing)
+
+컨퍼런스 CRUD, order cqrs+event sourcing, payment cars
+
+aggregate을 완전 분리 command processor을 통해서 옮겼음
+기존 service 어떻게 보면 application
+order db에 넣고 seat availability -> event를 받아서 aggregate 불러서 처리
 
