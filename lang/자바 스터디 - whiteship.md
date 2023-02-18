@@ -328,3 +328,33 @@ Comany.BANANA == Fruit.BANANA
 > EnumSet.allOf(Fruit.class);
 > static한 내부에 regular, jumbo 가 숨어 있다.
 
+
+## 12주차 annotation
+
+annotation 은 마크해둔 것 > 런타임 중 알아야하는 값은 못 들어감
+
+@Retention이 없으면 class 
+SOURCE(compile 하고 없어짐, override) -> CLASS(class 정보, bytecode 추출은 가능) -> RUNTIME (메모리에 읽었기 때문에 reflection 가능해짐)
+
+@Target({TYPE, FIELD, METHOD, PARAMETER, CONSTRUCTOR, LOCAL_VARIABLE, MODULE})
+
+```java
+@Retention(RetentionPolicy.RUNTIME) 
+public @interface MyAnnotation {
+    String value();
+}
+```
+
+@FunctionalInterface
+interface 메소드 하나만 존재
+
+@Inherited
+하위 클래스에 전파
+
+> inherited붙어있는데 declared로 가져오면 안 나옴
+> getDeclaredFields private field 까지 가져올 수 있음 -> 선언 되어 있는 것 가져옴
+
+### ServiceLoader
+구현체를 지정하지 않고 jar파일만 바꿔끼면 작동함
+META-INF/services > interface경로로 만든 파일 이름에 구현체 풀패지키 경로를 넣어줌
+ServiceLoader<HelloService> helloLoader = ServiceLoader.load(HelloService.class);
