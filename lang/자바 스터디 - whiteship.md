@@ -358,3 +358,62 @@ interface 메소드 하나만 존재
 구현체를 지정하지 않고 jar파일만 바꿔끼면 작동함
 META-INF/services > interface경로로 만든 파일 이름에 구현체 풀패지키 경로를 넣어줌
 ServiceLoader<HelloService> helloLoader = ServiceLoader.load(HelloService.class);
+
+```java
+public class CustomProcessor extends AbstractProcessor {
+
+    @Override
+    public synchronized void init(ProcessingEnvironment processingEnvironment) {
+        super.init(processingEnvironment);
+        //프로세싱에 필요한 기본적인 정보들을 processingEnvironment 부터 가져올 수 있습니다.
+    }
+
+    @Override
+    public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnvironment) {
+        System.out.println("애노테이션 프로세싱!!");//프로세싱이 되는지 확인하기 위한 로그 확인용입니다. 
+        return false;
+    }
+
+    @Override
+    public Set<String> getSupportedAnnotationTypes() {
+        return new HashSet<String>(){
+            {
+                add(MyAnnotation.class.getCanonicalName());// 어떤 애노테이션을 처리할 지 Set에 추가합니다.
+            }
+        };
+    }
+
+    @Override
+    public SourceVersion getSupportedSourceVersion() {
+        return SourceVersion.latestSupported();//지원되는 소스 버전을 리턴합니다.
+    }
+
+}
+```
+
+### annotation processor
+
+1.
+애노테이션 프로세서를 등록하기 위해서는 annotation_processor 모듈레벨에서 다음과 같이 폴더를 생성
+
+annotation_processor/src/main/resources/META-INF/services
+그런 뒤 파일을 하나 만듬. 파일이름은 반드시 다음과 같아야 함
+
+javax.annotation.processing.Processor
+
+파일을 열어 애노테이션 프로세서의 패키지명을 포함하고 있는 CanonicalName을 적음
+
+com.chanqun.annotation_processor.CharlesProcessor
+
+2. 
+annotation_processeor모듈에 다음과 같이 auto-service 의존성을 추가
+
+implementation 'com.google.auto.service:auto-service:1.0-rc5'
+그런 뒤, 애노테이션 프로세서파일을 열어 다음과 같이 애노테이션을 추가
+
+```java
+@AutoService(Processor.class)
+public class CusomProcessor extends AbstractProcessor {
+...
+}
+```
