@@ -499,3 +499,43 @@ Lower Bounded Wildcard
 특정한 상황에서 default 생성자에서 찾아내면 제네릭한 정보를 알 수 있다.
 [슈퍼타입토큰](https://yangbongsoo.gitbook.io/study/super_type_token)
 
+
+## 15주차 람다식
+
+### 람다식이란?
+
+람다식은 간단히 말해 메서드를 하나의 식(expression) 으로 표현한 것이다.
+람다식은 함수를 간략하면서도 명확한 식으로 표현할 수 있게 해준다.
+
+게다가 모든 메서드는 클래스에 포함되어야 하므로 클래스도 새로 만들어야 하고, 객체도 생성해야 이 메소드를 호출할 수 있지만, 
+람다식은 이 과정 없이 오직 람다식 자체만으로 이 메서드의 역할을 수행할 수 있는 것이 큰 장점이다.
+-> 자바 람다는 INVOKEDYNAMIC CALL
+> idny가 호출하게 되면 bootstrap lambdafactory.metafactory()
+
+
+### 기본 함수형 인터페이스
+Runnable
+Supplier
+Consumer
+Function<T, R>
+Predicate
+
+### Variable Capture
+- 람다식은 특정 상황에서 람다 함수 본문 외부에 선언된 변수에 접근이 가능하다.
+- Java8 버전 이전에서는 익명의 내부 클래스가 이를 둘러싼 메서드에 대한 로컬 변수를 캡처할 때 이 문제가 발생했다. 컴파일러가 만족할 수 있도록 로컬 변수 앞에 final 키워드를 추가해야만 했었다.
+- 우리가 변수를 final 로 선언하면 컴파일러가 변수가 사실상 final로 인식할 수 있다.
+### Local variable Capture
+- Local variable 은 조건이 final 또는 effectively final 이여야한다
+- effectively final은 무엇일까?
+  - Java 8에 추가된 syntactic sugar 의 일종으로, 초기화된 이후 값이 한번도 변경되지 않았다는 것
+  - effectively final 변수는 final 키워드가 붙어있지 않지만 final 키워드를 붙인 것과 동일하게 컴파일에서 처리
+  - 결론적으로 초기화하고 값이 변경되지 않은 것을 의미
+
+### Method Reference
+메소드를 간결하게 지칭할 수 있는 방법으로 람다가 쓰이는 곳에서 사용이 가능하다
+일반 함수를 람다 형태로 사용할 수 있도록 해준다.
+
+
+Stream, Optional 
+
+왜랑 어떻게 하면서 확장하자
