@@ -417,3 +417,47 @@ public class CusomProcessor extends AbstractProcessor {
 ...
 }
 ```
+
+## 13주차 I/O
+
+### Stream / Buffer / Channel 기반의 I/O
+
+#### byte stream (바이트 단위)
+
+스트림은 단방향통신만 가능
+
+입출력(I/O)란 Input과 Output의 약자로 입력과 출력, 간단히 입출력이라 한다.
+입출력은 컴퓨터 내부 또는 외부 장치와 프로그램간의 데이터를 주고 받는 것을 말한다.
+
+- 스트림은 먼저 보낸 데이터를 먼저 받게 되어 있으며
+- 중간에 건너뜀 없이 연속적으로 데이터를 주고 받는다.
+
+
+#### Buffer 속도가 왜 빨라질까? (보조 스트림) - os 레벨에 있는 시스템 콜의 횟수 자체를 줄이기 때문에 빨라진다.
+```java
+FileInputStream fileInputStream = new FileInputStream("test.txt");
+BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
+```
+
+보조스트림을 이용해 조립하는 것이 가능하다. - 데코레이터 패턴 (FilterInputStream, BufferedInputStream, DataInputStream, ...)
+
+### 문자기반 스트림 - Reader Writer
+
+StringReader, StringWriter
+
+### io와 nio 차이
+
+입출력 방식 : 스트림 방식	, 채널 방식
+버퍼 방식 :	넌버퍼(non-buffer), 버퍼(buffer)
+비동기 방식 :	지원 안함, 지원
+블로킹 / 넌블로킹 방식 :	 블로킹 방식만 지원(동기), 	블로킹 / 넌블로킹 방식 모두 지원(동기/비동기 모두 지원)
+
+
+### 표준 입출력
+System.in   // 콘솔로부터 데이터를 입력받는데 사용
+System.out  // 콘솔로 데이터를 출력하는데 사용
+System.err  // 콘솔로 데이터를 출력하는데 사용
+
+### 다이렉트 버퍼 / 논 다이렉트 버퍼
+
+![direct.png](../image/direct.png)
