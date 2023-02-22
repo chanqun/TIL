@@ -225,3 +225,80 @@ order db에 넣고 seat availability -> event를 받아서 aggregate 불러서 �
 [이벤트 소싱](https://www.youtube.com/watch?v=Yd7TXUdcaUQ)
 
 (카프카에서 이벤트가 큐에 얼마나 머물렀는지 분석해서 성능 개선도 가능함)
+
+
+## Journey 5 - Preparing for the V1 Release
+
+### The Contoso Conference Management System V1 release
+
+One of the key refactorings undertaken by the team during this phase of the journey was to introduce event sourcing into the Orders and Registrations bounded context
+One of the anticipated benefits from implementing the CQRS pattern is that it will help us manage change in a complex system
+
+Access code - When a business customer creates a new conference, the system generates a five-character access code ande sends it by email to the business customer
+Even sourcing - Event sourcing is a way of persisting and reloading the sate of aggregates within the system.
+Eventual consistency - the storage system does guarantee that if no new updates are made to the object during a sufficiently long period of time 
+
+
+The table that follows lists all of the message that the artifacts shown in the diagram exchange with each other
+
+
+![diagram-exchange-1.png](../image/diagram-exchange-1.png)
+
+![diagram-exchange-2.png](../image/diagram-exchange-2.png)
+
+
+### identifying aggregates
+
+팀이 V1 릴리즈를 위해 만든 Event Store 는 애그리거트 ID 를 파티션 키로 사용했고 이는 특정 애그리거트에 대한 이벤트를 보유하는 파티션을 효율적으로 찾을 수 있게 해준다.
+
+CRUD
+CQRS 패턴을 모든 시스템에 적용할 필요는 없다. 명확한 이점을 제공하는 Bounded Context 에서만 패턴을 적용해야 한다.
+Contoso 컨퍼런스 관리 시스템에서 Conference Management 바운디드 컨텍스트는 비교적 간단하고 작다.
+
+
+###
+비즈니스 고객이 좌석 타입의 할당량을 변경할 때, 다른 바운디드 컨텍스트도 이 변화에 대해서 인지하고 있어야 한다.
+
+왜 여기서 두 가지 다른 접근법을 사용하나요? 하나의 접근법을 사용하는 것이 더 쉬울 것 같아요.
+장기적으로 이벤트를 사용하는 것이 더 유연하죠.
+추가 바운디드 컨텍스트에 이 정보가 필요한 경우, 이벤트를 쉽게 구독할 수 있습니다. 이벤트를 사용하면 경계 컨텍스트 사이의 결합이 줄어듭니다.
+
+
+위 대화와 별개로 또 다른 문제는 통합에 대한 이벤트를 언제 어디서 저장해야 하는지에 관한 것이다.
+위에서 논의한 예를 보면, 컨퍼런스 관리 바운디드 컨텍스트는 이벤트를 게시하고 주문 및 등록 바운디드 컨텍스트는 이를 처리하고 read model 을 업데이트하는 데 사용된다.
+시스템이 read model 에서 오류가 발생하면 이벤트를 저장하지 않고는 그 읽기 모델 데이터를 다시 만들어내는 방법은 없다.
+이러한 통합 이벤트를 저장해야 하는지에 대한 여부는 애플리케이션의 특정 요구사항과 구현에 따라 다를 수 있다.
+
+
+관심 정도가 중요
+
+> write side 는 현재의 예에서와 같이 read side 대신 integration 을 처리할 수 있다.
+> 그런 다음 이벤트는 write side 에서 다른 이벤트로 저장되는 변경 사항의 결과가 된다.
+> integration data 는 저장될 필요가 없는 일시적인 데이터일 수도 있다.
+> CRUD 스타일 바운디드 컨텍스트의 통합 이벤트는 마지막 이벤트만 필요하도록 상태 데이터를 포함할 수 있다.
+> 예를 들어, 컨퍼런스 관리 바운디드 컨텍스트의 이벤트에 현재 좌석 할당량이 포함된 경우 이전 값에 관심이 없을 수 있다. 
+
+
+### 분산 트랜잭션과 이벤트 소싱
+컨퍼런스 관리 바운디드 컨텍스트의 통합에 대해서 논의한 이전 섹션은 컨퍼런스 관리 데이터를 저장하는 데이터베이스와 다른 바운디드 컨텍스트에 변경 사항을 publsih 하는 메시징 인프라간의 일관성을 보장하기 위해서 분산된 2-phase commit 트랜잭션을 사용하는데에 문제를 제기했다.
+이벤트 소싱을 구현할 때 동일한 문제가 발생된다.
+모든 이벤트를 저장하는 바운디드 컨텍스트의 이벤트 스토어와 해당 이벤트를 다른 바운디드 컨텍스트에 게시하는 메시징 인프라 간의 일관성을 보장해야 한다.
+이벤트 스토어 구현의 주요 특징은 저장하는 이벤트와 바운디드 컨텍스트가 게시하는 이벤트 사이의 일관성을 보장해줘야 한다는 것이다
+
+
+Favoring Autonomy
+자율접근방식은 주문 및 등록 바운디드 컨텍스트에서 주문 금액의 합계를 계산하는 책임을 부여한다.
+주문 및 등록 바운디드 컨텍스트는 총 금액을 계산하기 위한 정보들이 이미 존재하므로(특정 작업중 컨퍼런스 관리 바운디드 컨텍스트로부터 필요한 정보를 캐시한다면) 계산을 수행할 때 다른 외부 바운디드 컨텍스트에 종속되지 않는다.
+이 접근법의 장점은 주문 및 등록 바운디드 컨텍스트가 자율적, 독립적이라는 것이다. 다른 바운디드 컨텍스트 또는 서비스의 가용성에 대해서 의존하지 않는다.
+하지만 단점은 가격에 대한 정보가 최신이 아닐 수 있다는 것이다.
+비즈니스 고객이 컨퍼런스 관리 바운디드 컨텍스트에서 가격 정보를 변경할 수 있다. 그럼 변경 사항이 주문 및 등록 바운디드 컨텍스트에 즉시적으로 반영되지 않을 수 있다.
+
+Favoring Authority
+이 접근법은, 주문 금액 합계를 계산하는 로직이 계산을 수행하는 시점의 바운디드 컨텍스트로부터 가격 정보를 받는 방식이다.
+주문과 등록 바운디드 컨텍스트는 계산을 수행하거나 다른 바운디드 컨텍스트 혹은 서비스로 계산하는 책임을 위임할 수 있다.
+이 접근법의 장점은 시스템이 주문 금액 합계를 계산할 때마다 항상 최신의 가격 정보를 토대로 계산한다는 것이다.
+단점은 주문 및 등록 바운디드 컨텍스트가 주문 금액 합계를 계산할 때마다 다른 바운디드 컨텍스트에 종속된다는 것이다.
+최신 가격 정보를 위해 컨퍼런스 관리 바운디드 컨텍스트를 쿼리하거나 계산을 수행하는 다른 서비스를 호출해야한다.
+
+팀은 이러한 가능성에 대해 사용자에게 미리 경고하는 alert 을 추가하기로 결정했다.
+
