@@ -279,7 +279,7 @@ Contoso 컨퍼런스 관리 시스템에서 Conference Management 바운디드 �
 > 예를 들어, 컨퍼런스 관리 바운디드 컨텍스트의 이벤트에 현재 좌석 할당량이 포함된 경우 이전 값에 관심이 없을 수 있다. 
 
 
-### 분산 트랜잭션과 이벤트 소싱
+### 분산 트랜잭션 및 이벤트 소싱
 컨퍼런스 관리 바운디드 컨텍스트의 통합에 대해서 논의한 이전 섹션은 컨퍼런스 관리 데이터를 저장하는 데이터베이스와 다른 바운디드 컨텍스트에 변경 사항을 publish 하는 메시징 인프라간의 일관성을 보장하기 위해서 분산된 2-phase commit 트랜잭션을 사용하는데에 문제를 제기했다.
 이벤트 소싱을 구현할 때 동일한 문제가 발생된다.
 모든 이벤트를 저장하는 바운디드 컨텍스트의 이벤트 스토어와 해당 이벤트를 다른 바운디드 컨텍스트에 게시하는 메시징 인프라 간의 일관성을 보장해야 한다.
@@ -322,8 +322,13 @@ Favoring Authority (권위)
 - 다른 집계 및 프로세스 관리자(제한된 다른 컨텍스트에 있을 수 있음)는 이러한 이벤트를 구독
 
 
-
 팀은 이러한 가능성에 대해 사용자에게 미리 경고하는 alert 을 추가하기로 결정했다.
+
+이벤트 소싱의 장점은 re-play 가 가능하다.
+만번째 snapshot 형태로 저장한다.
+
+aggregate 를 나누는 시점에서 복잡성이 올라가긴 함. 반 버논 aggregate 사이에는 이벤트를 이용해야한다.
+
 
 ## Journey 6 - Versioning Our System
 
@@ -342,6 +347,9 @@ The top-level goal for this stage in the journey is to learn about how to upgrad
 > Idempotency is a characteristic of an operation that means the operation can be applied multiple times without changing the result. 
 
 
+v1 -> v2 모델 변경을 했는데 이벤트 기반으로 했기 때문에 똑같이 처리가 가능하도록 좀 더 유연하게 수정 가능했음
+
+
 !!No down time upgrade, display remaining seat quantities, Handle zero-cost seats
 
 ### Handling changes to events definitions
@@ -357,13 +365,14 @@ The top-level goal for this stage in the journey is to learn about how to upgrad
 - 모든 바인딩된 컨텍스트의 모든 명령 및 이벤트 메시지를 메시지 로그에 저장
 
 
-v1 메시지 순서가 제대로 동작하지 않아 시쿼스, 타임스탬프를 사용했음
+- v1 메시지 순서가 제대로 동작하지 않아 시퀀스, 타임스탬프를 사용했음
 
 데이터 마이그레이션의 일부로 사용 가능한 수량을 올바르게 계산하기 위해 각 SeatsAvailability 집계 에 대한 이벤트 저장소의 모든 이벤트를 재생
-
 팀이 V2에 대해 도입한 변경 사항 중 하나는 미래에 사용될 수 있는 모든 것을 캡처하여 애플리케이션의 미래 경쟁력을 보장하기 위해 모든 명령 및 이벤트 메시지의 복사본을 메시지 로그에 보관하는 것
 마이그레이션 프로세스는 이 새로운 기능을 고려함
 future-proof
+
+- 이벤트 중복 처리 -> 메시지 멱등성 존중
 
 
 이 예에서 도메인 모델에는 명령을 전송하여 이벤트에 응답하는 프로세스 관리자가 포함되어 있음
