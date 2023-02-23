@@ -272,7 +272,7 @@ Contoso 컨퍼런스 관리 시스템에서 Conference Management 바운디드 �
 
 관심 정도가 중요
 
-> write side 는 현재의 예에서와 같이 read side 대신 integration 을 처리할 수 있다.
+> write side 는 현재의 예와 같이 read side 대신 integration 을 처리할 수 있다.
 > 그런 다음 이벤트는 write side 에서 다른 이벤트로 저장되는 변경 사항의 결과가 된다.
 > integration data 는 저장될 필요가 없는 일시적인 데이터일 수도 있다.
 > CRUD 스타일 바운디드 컨텍스트의 통합 이벤트는 마지막 이벤트만 필요하도록 상태 데이터를 포함할 수 있다.
@@ -280,7 +280,7 @@ Contoso 컨퍼런스 관리 시스템에서 Conference Management 바운디드 �
 
 
 ### 분산 트랜잭션과 이벤트 소싱
-컨퍼런스 관리 바운디드 컨텍스트의 통합에 대해서 논의한 이전 섹션은 컨퍼런스 관리 데이터를 저장하는 데이터베이스와 다른 바운디드 컨텍스트에 변경 사항을 publsih 하는 메시징 인프라간의 일관성을 보장하기 위해서 분산된 2-phase commit 트랜잭션을 사용하는데에 문제를 제기했다.
+컨퍼런스 관리 바운디드 컨텍스트의 통합에 대해서 논의한 이전 섹션은 컨퍼런스 관리 데이터를 저장하는 데이터베이스와 다른 바운디드 컨텍스트에 변경 사항을 publish 하는 메시징 인프라간의 일관성을 보장하기 위해서 분산된 2-phase commit 트랜잭션을 사용하는데에 문제를 제기했다.
 이벤트 소싱을 구현할 때 동일한 문제가 발생된다.
 모든 이벤트를 저장하는 바운디드 컨텍스트의 이벤트 스토어와 해당 이벤트를 다른 바운디드 컨텍스트에 게시하는 메시징 인프라 간의 일관성을 보장해야 한다.
 이벤트 스토어 구현의 주요 특징은 저장하는 이벤트와 바운디드 컨텍스트가 게시하는 이벤트 사이의 일관성을 보장해줘야 한다는 것이다
@@ -301,4 +301,51 @@ Favoring Authority
 최신 가격 정보를 위해 컨퍼런스 관리 바운디드 컨텍스트를 쿼리하거나 계산을 수행하는 다른 서비스를 호출해야한다.
 
 팀은 이러한 가능성에 대해 사용자에게 미리 경고하는 alert 을 추가하기로 결정했다.
+
+## Journey 6 - Versioning Our System
+
+The top-level goal for this stage in the journey is to learn about how to upgrade a system that includes bounded contexts that implement the CQRS pattern and event sourcing.
+
+> Command
+> A single recipient processes a command. A command bus transports commands that command handlers then dispatch to aggregates. 
+> Sending a command is an asynchronous operation with no return value.
+
+> Event
+> Aggregates in the domain model raise events. Events can also come from other bounded contexts.
+> Multiple subscribers can handle a specific event.
+
+
+> Idempotency (멱등성)
+> Idempotency is a characteristic of an operation that means the operation can be applied multiple times without changing the result. 
+
+
+!!No down time upgrade, display remaining seat quantities, Handle zero-cost seats
+
+### Handling changes to events definitions
+- mapping/filtering event messages in the infrastructure
+- handling multiple message versions in the aggregates
+- honoring message idempotency
+
+
+- 원래 제한된 컨텍스트(컨퍼런스 관리 제한된 컨텍스트)의 모든 이벤트를 저장하고 주문 및 등록 제한된 컨텍스트가 이러한 이벤트를 재생하기 위해 액세스할 수 있는 공유 이벤트 저장소를 사용합니다. 제한된 컨텍스트 수신은 이전에 좌석 유형 설명이 무엇인지 확인해야 하는 시점까지 이벤트 스트림을 재생할 수 있음
+- 수신하는 제한된 컨텍스트(주문 및 등록 제한된 컨텍스트)에 도착하는 즉시 모든 이벤트를 저장
+- 뷰 모델 생성기의 명령 처리기가 이벤트를 저장하고 필요한 항목만 선택하도록 함
+- 보기 모델 생성기의 명령 처리기가 이 보기 모델에 대한 이벤트 소싱을 사용하여 다른 이벤트를 저장하도록 함
+- 모든 바인딩된 컨텍스트의 모든 명령 및 이벤트 메시지를 메시지 로그에 저장
+
+
+v1 메시지 순서가 제대로 동작하지 않아 시쿼스, 타임스탬프를 사용했음
+
+데이터 마이그레이션의 일부로 사용 가능한 수량을 올바르게 계산하기 위해 각 SeatsAvailability 집계 에 대한 이벤트 저장소의 모든 이벤트를 재생
+
+팀이 V2에 대해 도입한 변경 사항 중 하나는 미래에 사용될 수 있는 모든 것을 캡처하여 애플리케이션의 미래 경쟁력을 보장하기 위해 모든 명령 및 이벤트 메시지의 복사본을 메시지 로그에 보관하는 것
+마이그레이션 프로세스는 이 새로운 기능을 고려함
+future-proof
+
+
+이 예에서 도메인 모델에는 명령을 전송하여 이벤트에 응답하는 프로세스 관리자가 포함되어 있음
+테스트는 예상되는 모든 명령이 전송되고 예상되는 모든 이벤트가 발생하는지 확인함
+
+마이그레이션 프로세스를 테스트하면 마이그레이션이 예상대로 실행되는지 확인할 뿐만 아니라 
+잠재적으로 애플리케이션 자체의 버그를 드러낼 수 있음
 
