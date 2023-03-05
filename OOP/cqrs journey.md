@@ -424,3 +424,16 @@ RegistrationProcessManager
 
 ### 확장성 향상
 
+- 데이터 분할
+- Service Bus 추가 분할
+- 저장 및 전달
+- 조절 표시기 수신 및 반응
+
+### 기타 최적화
+- 순차 GUID 사용 페이지 분할 자주 발생 부정적 영향 해결
+- 비동기 ASP.NET MVC 컨트롤러 사용.
+- 프리페치를 사용하여 Service Bus에서 여러 메시지를 검색합니다. (단일 왕복으로 여러 메시지 검색)
+- 여러 Windows Azure Service Bus 세션을 병렬로 수락합니다. 
+- 낙관정 동시성 검사 추가
+- 좌석 예약 명령이 만료됩니다.
+
