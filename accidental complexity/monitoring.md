@@ -34,7 +34,7 @@ scrape_configs:
 ![http_requests_total.png](../image/http_requests_total.png)
 
 그라파나가 promql을 짜서 prometheus(수집기+시계열db) 요청함
-![http_requests_total_2.png](http_requests_total_2.png)
+![http_requests_total_2.png](../image/http_requests_total2.png)
 
 잠깐 떴다가 죽는 서버인 경우는 푸시서버를 둔다.
 
@@ -50,7 +50,7 @@ actuator, micrometer를 넣어주면 할 수 있음
 
 ### grafana
 
-![grafana.png](../image/grafana.png)
+![grafana](../image/grafana.jpg)
 
 [grafana dashboard](https://grafana.com/grafana/dashboards/)
 디자인 (node-exporter > settings > json Model)
