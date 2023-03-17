@@ -60,3 +60,15 @@ fault tolerance, concurrent safety, easy to use
 rolling deployment (순차적으로 패치), blue/green deployments(전체 서버를 스와핑 하는 방식), canary deployments(트래픽을 순차적으로 이주)
 
 
+## 실시간 속성의 서비스 데이터 처리
+실시간 시스템 + event-driven
+
+real time database
+Firebase RTDB (공장 자동화, 항공 우주, 교통 제어, 주식 거래)
+
+![우버동기화.png](../image/우버동기화.png)
+
+관계형 db + pubsub 디자인 패턴, 실시간/시계열 데이터 베이스, NoSQL 등
+
+![eventbus.png](../image/eventbus.png)
+
