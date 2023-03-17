@@ -517,19 +517,46 @@ flatMapMerge
 flatMapLatest
 1,2 가다가 그냥 취소하고 3번째 것만 진행함
 
+### channel
+send receive
+```kotlin
+fun main() = runBlocking<Unit> {
+    val channel = Channel<Int>()
+  
+    launch {
+        for (x in 1..10) {
+            channel.send(x) // suspension point
+        }
+    }
+  
+    repean(10) {
+        println(channel.receive()) // suspension point
+    }
+}
+```
+
+runBlocking : AbstractCoroutine (JobSupport, Job, Continuation, CoroutineScope)
+ProducerScope = CoroutineScope + SendChannel
+
+```kotlin
+val oneToTen = produce {
+    send(1)
+}
+
+oneToTen.consumeEach {}
+```
+
+### pipeline
+하나의 스트림을 프로듀서가 만들고, 다른 코루틴에서 그 스트림을 읽어 새로운 스트림을 만드는 패턴
+
+팬아웃 여러 코루틴이 동시에 채널을 구독하는 것
+팬인 반대로 생산자가 많은 것
+
+먼저 끝나는 요청 처리 select
+
+## 버퍼 10주면 쌓을 수 있음
+## 랑데뷰 버퍼 없는 것 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+[coroutines hands on](https://kotlinlang.org/docs/coroutines-and-channels.html#run-the-code)
 
