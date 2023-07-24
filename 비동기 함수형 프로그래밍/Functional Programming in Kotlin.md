@@ -53,3 +53,42 @@ class Cafe {
 
 The example takes two parameters: a CreditCard and the Int number of coffees to be purchased. 
 
+#### 1.2 exactly what is a (pure) function?
+
+We can formalize this idea of pure functions using the concept of referential transparency (RT)
+
+#### 1.3 RT, purity, and the substitution model
+```kotlin
+>> val r1 = "Hello, World".reversed()
+res4: kotlin.String = dlroW ,olleH
+>>> val r2 = "Hello, World".reversed()
+res5: kotlin.String = dlroW ,olleH
+```
+reversed is pure function
+
+We can conclude that StringBuilder.append is not a pure function.
+
+
+By eliminating the side effect of payment pro- cessing performed on the output, we could more easily reuse the function’s logic, both for testing and for further composition (
+
+#### 1.4 what lies ahead
+
+- Use lazy evaluation, and work with pure functional state.
+- Understand and use monoids, monads, and applicative and traversable functors.
+
+
+Summary
+
+- Functional programming results in increased code modularity.
+- Modularity gained from programming in pure functions leads to improved test-
+ability, code reuse, parallelization, and generalization.
+- Modular functional code is easier to reason about.
+- Functional programming leads us toward using only pure functions.
+- A pure function can be defined as a function that has no side effects.
+- A function has a side effect if it does something other than returning a result.
+- A function is said to be referentially transparent if everything it does is represented
+by what it returns.
+- The substitution model can be used to prove the referential transparency of a
+function.
+
+### 2 Getting started with functional programming in kotlin
