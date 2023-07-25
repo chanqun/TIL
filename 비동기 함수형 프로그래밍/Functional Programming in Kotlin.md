@@ -92,3 +92,50 @@ by what it returns.
 function.
 
 ### 2 Getting started with functional programming in kotlin
+
+#### 2.1 higher-order functions: Passing functions to functions
+
+Variable-naming conventions
+It’s a standard convention to use names like f, g, and h for parameters to a HOF. 
+In functional programming, we tend to use terse variable names, even one-letter names. 
+This is because HOFs are so general that they have no opinion on what the argument should actually do in the limited scope of the function body. 
+All they know about the argument is its type. 
+Many functional programmers feel that short names make code easier to read since they make the code structure easier to see at a glance.
+
+```kotlin
+fun fib(i: Int): Int {
+        fun go(n: Int): Int =
+            if (n == 1 || n == 2) {
+                1
+            } else {
+                go(n - 1) + go(n - 2)
+            }
+        return go(i)
+    }
+```
+
+
+#### 2.2 Polymorphic functions: Abstracting over types
+Often, and especially when writing HOFs, we want to write code that works for any type it’s given. These are called polymorphic functions.
+
+##### 2.2.1 An example of a polymorphic function
+```kotlin
+fun <A> isSorted(aa: List<A>, order: (A, A) -> Boolean): Boolean {
+    tailrec fun go(head: A, remain: List<A>): Boolean = if (remain.isEmpty()) {
+        true
+    } else if (!order(head, remain.head)) {
+        false
+    } else {
+        go(remain.head, remain.tail)
+    }
+
+    return aa.isEmpty() || go(aa.head, aa.tail)
+}
+```
+
+
+##### 2.2.2 Calling HOFs with anonymous functions
+
+
+
+
