@@ -91,6 +91,10 @@ by what it returns.
 - The substitution model can be used to prove the referential transparency of a
 function.
 
+#### test 하는 것
+
+값, state, interaction
+
 ### 2 Getting started with functional programming in kotlin
 
 #### 2.1 higher-order functions: Passing functions to functions
@@ -104,15 +108,30 @@ Many functional programmers feel that short names make code easier to read since
 
 ```kotlin
 fun fib(i: Int): Int {
-        fun go(n: Int): Int =
-            if (n == 1 || n == 2) {
-                1
-            } else {
-                go(n - 1) + go(n - 2)
-            }
-        return go(i)
-    }
+    fun go(n: Int): Int =
+        if (n == 1 || n == 2) {
+            1
+        } else {
+            go(n - 1) + go(n - 2)
+        }
+    return go(i)
+}
+
+fun fib(i: Int): Int {
+    tailrec fun go(n: Int, now: Int, next: Int): Int =
+        if (n <= 0) {
+            now
+        } else {
+            go(n - 1, next, now + next)
+        }
+    return go(i, 0 ,1)
+}
 ```
+tailrec 조건 함수에 끝이 상수이거나
+재귀를 할 경우 마지막이 자기 자신을 호출하는 딱 하나여야한다
+꼬리 재귀는 어떤 함수가 직간접적으로 자기 자신을 호출하면서도 그 호출이 마지막 연산(tail call)인 경우
+
+ThreadStackSize = 512인데 계속 재귀호출하면 기록이 남아있음
 
 
 #### 2.2 Polymorphic functions: Abstracting over types
@@ -132,6 +151,9 @@ fun <A> isSorted(aa: List<A>, order: (A, A) -> Boolean): Boolean {
     return aa.isEmpty() || go(aa.head, aa.tail)
 }
 ```
+함수형에서는 head, tail이 매우 효율적
+
+lexical scope
 
 
 ##### 2.2.2 Calling HOFs with anonymous functions
@@ -148,4 +170,21 @@ fun <A, B, C> uncurry(f: (A) -> (B) -> C): (A, B) -> C =
 fun <A, B, C> compose(f: (B) -> C, g: (A) -> B): (A) -> C =
     { a: A -> f(g(a)) }
 ```
+
+자바에도 있음
+
+순서차이
+```java
+default <V> Function<V, R> compose(Function<? super V, ? extends T> before) {
+    Objects.requireNonNull(before);
+    return (V v) -> apply(before.apply(v));
+}
+
+default <V> Function<T, V> andThen(Function<? super R, ? extends V> after) {
+    Objects.requireNonNull(after);
+    return (T t) -> after.apply(apply(t));
+}
+```
+ㅡㅡㅡㅡㅡㅡ
+
 
