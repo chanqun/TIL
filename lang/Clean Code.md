@@ -85,3 +85,23 @@ So go ahead and use computer science (CS) terms, algorithm names, pattern names,
 
 ### Don't Add Gratuitous Context
 
+## Chapter 3 - Functions
+
+### Small
+The first rule of functions is that they should be small.
+
+### Do One Thing
+
+### One Level of Abstraction per Funcion
+-> Reading Code from Top to Bottom : The Stepdown Rule
+
+### Use Descriptive Names
+
+### Have No Side Effects
+Output Arguments :
+In general output arguments should be avoided. If your function must change the state of something, have it change the state of its owning object.
+
+### Command Query Separation
+
+### Prefer Exceptions to Returning Error Codes
+
