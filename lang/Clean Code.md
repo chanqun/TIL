@@ -92,7 +92,7 @@ The first rule of functions is that they should be small.
 
 ### Do One Thing
 
-### One Level of Abstraction per Funcion
+### One Level of Abstraction per Function
 -> Reading Code from Top to Bottom : The Stepdown Rule
 
 ### Use Descriptive Names
@@ -104,4 +104,18 @@ In general output arguments should be avoided. If your function must change the 
 ### Command Query Separation
 
 ### Prefer Exceptions to Returning Error Codes
+
+### Don't Repeat Yourself
+
+### Structured Programming
+
+Some programmers follow Edsger Dijkstra’s rules of structured programming.
+Dijkstra said that every function, and every block within a function, should have one entry and one exit.
+
+### How Do You Write Functions Like This?
+처음에는 길고 복잡하고, 들여쓰기 단계나 중복된 루프도 많다.
+인수목록도 길지만, 이 코드들을 빠짐없이 테스트하는 단위 테스트 케이스도 만들고, 코드를 다듬고, 함수를 만들고, 이름을 바꾸고, 중복을 제거한다. 처음부터 탁 짜지지는 않는다.
+
+## Chapter 4 - Comments
+
 
