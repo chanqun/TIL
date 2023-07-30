@@ -118,4 +118,44 @@ Dijkstra said that every function, and every block within a function, should hav
 
 ## Chapter 4 - Comments
 
+### Comments Do Not Make Up for Bad Code
+### Explain Yourself in Code
+
+```java
+if ((employee.flags & HOURLY_FLAG) && (employee.age > 65)){}
+
+if (employee.isEligibleForFullBenefits()){}
+```
+
+### Good Comments
+- Legal Comments
+- Informative Comments
+- Explanation of Intent
+- Clarification
+- Warning of Consequences
+- TODO Comments
+- Amplification
+- Javadocs in public APIs
+
+### Bad Comments
+- Mumbling
+- Redundant Comments
+- Misleading Comments
+- Mandated Comments
+- Journal Comments
+- Noise Comments
+- Scary Noise
+- Don't Use a Comment When You Can Use a Function or a Variable
+- Position Makers
+- Closing Brace Comments
+- Commented-out Code
+- HTML Comments
+- Nonlocal Information
+- Too Much Information
+- Inobvious Connection
+- Function Headers
+- Javadocs in Nonpublic Code
+
+
+## Chapter 5 - Formatting
 
