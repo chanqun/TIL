@@ -187,4 +187,58 @@ default <V> Function<T, V> andThen(Function<? super R, ? extends V> after) {
 ```
 ㅡㅡㅡㅡㅡㅡ
 
+## Part 3 Functional data structures
+
+### 3.1 Defining functional data structures
+```kotlin
+sealed class List<out A> // <1>
+
+object Nil : List<Nothing>() // <2>
+
+data class Cons<out A>(val head: A, val tail: List<A>) : List<A>() // <3>
+```
+
+### 3.2 Working with functional data structures
+```kotlin
+sealed class List<out A> { // <1>
+    companion object { // <2>
+        fun <A> of(vararg aa: A): List<A> { // <3>
+            val tail = aa.sliceArray(1 until aa.size)
+            return if (aa.isEmpty()) Nil else Cons(aa[0], of(*tail))
+        }
+        
+        fun sum(ints: List<Int>): Int =
+            when (ints) {
+                is Nil -> 0
+                is Cons -> ints.head + sum(ints.tail)
+            }
+        
+        fun product(doubles: List<Double>): Double = 
+            when(double) {
+                is Nil -> 1.0
+                is Cons ->
+                    if (doubles.head == 0.0) 0.0
+                    else doubles.head * product(doubles.tail)
+            }
+    }
+}
+```
+
+### 3.3 Data Sharing in functional data structures
+
+When we add an element 1 to the front of an existing list—say, xs—we return a new list, in this case Cons(1,xs). 
+Since lists are immutable, we don’t need to actually copy xs; we can just reuse it.
+
+> When mutable data is passed through a chain of loosely coupled components, 
+> each component has to make its own copy of the data because other components might modify it. 
+> Immutable data is always safe to share,
+
+
+
+
+
+
+
+
+
 
