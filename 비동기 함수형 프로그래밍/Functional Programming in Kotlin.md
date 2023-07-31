@@ -233,7 +233,20 @@ Since lists are immutable, we don’t need to actually copy xs; we can just reus
 > each component has to make its own copy of the data because other components might modify it. 
 > Immutable data is always safe to share,
 
+### 3.4 Recursion over lists and generalizing to HOFs
 
+
+```kotlin
+fun <A, B> foldRight(xs: List<A>, z: B, f: (A, B) -> B): B =
+    when (xs) {
+        is Nil -> z
+        is Cons -> f(xs.head, foldRight(xs.tail, z, f))
+    }
+fun sum2(ints: List<Int>): Int =
+    foldRight(ints, 0, { a, b -> a + b })
+fun product2(dbs: List<Double>): Double =
+    foldRight(dbs, 1.0, { a, b -> a * b })
+```
 
 
 
