@@ -87,8 +87,12 @@ So go ahead and use computer science (CS) terms, algorithm names, pattern names,
 
 ## Chapter 3 - Functions
 
+
 ### Small
 The first rule of functions is that they should be small.
+
+Therefore, the indent level of a function should not be greater than one or two.
+This, of course, makes the functions easier to read and understand.
 
 ### Do One Thing
 
@@ -158,4 +162,21 @@ if (employee.isEligibleForFullBenefits()){}
 
 
 ## Chapter 5 - Formatting
+
+### The Newspaper Metaphor
+
+### Vertical Formatting
+#### Vertical Openness Between Concepts
+If openness separates concepts, then vertical density implies close association.
+
+### Horizontal Formatting
+#### Horizontal Openness and Density
+
+
+### Team Rules
+Every programmer has his own favorite formatting rules, but if he works in a team, then the team rules.
+
+## Chapter 6 - Objects and Data Structures
+
+
 
