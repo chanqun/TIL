@@ -248,6 +248,13 @@ fun product2(dbs: List<Double>): Double =
     foldRight(dbs, 1.0, { a, b -> a * b })
 ```
 
+```kotlin
+Cons(1, Cons(2, Nil))
+f (1,f (2,z ))
+```
+
+Sequence를 이용하면 자연수 집합을 나타낼 수 있음
+
 ### 3.5 Trees
 ```kotlin
 sealed class Tree<out A>
@@ -268,6 +275,7 @@ outcome evaluation.
 - Both List and Tree developed in this chapter are examples of ADTs.
 
 
+## Part 4 Handling error without exceptions
 
 
 
