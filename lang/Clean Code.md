@@ -87,8 +87,12 @@ So go ahead and use computer science (CS) terms, algorithm names, pattern names,
 
 ## Chapter 3 - Functions
 
+
 ### Small
 The first rule of functions is that they should be small.
+
+Therefore, the indent level of a function should not be greater than one or two.
+This, of course, makes the functions easier to read and understand.
 
 ### Do One Thing
 
@@ -159,3 +163,40 @@ if (employee.isEligibleForFullBenefits()){}
 
 ## Chapter 5 - Formatting
 
+### The Newspaper Metaphor
+
+### Vertical Formatting
+#### Vertical Openness Between Concepts
+If openness separates concepts, then vertical density implies close association.
+
+### Horizontal Formatting
+#### Horizontal Openness and Density
+
+
+### Team Rules
+Every programmer has his own favorite formatting rules, but if he works in a team, then the team rules.
+
+## Chapter 6 - Objects and Data Structures
+
+### Data Abstraction
+A class does not simply push its variables out through getters and setters. 
+Rather it exposes abstract interfaces that allow its users to manipulate the essence of the data, without having to know its implementation.
+
+### Data/Object Anti-Symmetry
+Objects hide their data behind abstractions and expose functions that operate on that data. 
+Data structure expose their data and have no meaningful functions.
+
+### The Law of Demeter
+There is a well-known heuristic called the Law of Demeter2 that says a module should not know about the innards of the objects it manipulates.
+
+### Data Transfer Objects
+
+### Conclusion
+Objects expose behavior and hide data. 
+This makes it easy to add new kinds of objects without changing existing behaviors. 
+It also makes it hard to add new behaviors to existing objects. 
+Data structures expose data and have no significant behavior. 
+This makes it easy to add new behaviors to existing data structures but makes it hard to add new data structures to existing functions.
+
+
+## Chapter 7 - Error Handling
