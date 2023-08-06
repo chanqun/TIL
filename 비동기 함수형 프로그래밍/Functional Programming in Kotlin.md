@@ -277,5 +277,32 @@ outcome evaluation.
 
 ## Part 4 Handling error without exceptions
 
+- Pitfalls of throwing exceptions
+- Understanding why exceptions break referential transparency
+- Handling exceptional cases: a functional approach
+- Using Option to encode success and ignore failure
+- Applying Either to encode successes and failures
+
+### 4.1 The problems with throwing exceptions
+- In functional programming, we avoid throwing exceptions except under extreme circumstances where we cannot recover.
+- Exceptions are not type-safe. If we forget to check for an exception in failingFn, a thrown exception won’t be detected until run time.
+
+### 4.2 Problematic alternatives to exceptions
+
+- Sentinel value 보초 값
+- Supplied default value
+
+### 4.3 Encoding success conditions with Option
+
+```kotlin
+sealed class Option<out A>
+data class Some<out A>(val get: A) : Option<A>()
+object None : Option<Nothing>()
+
+fun mean(xs: List<Double>): Option<Double> =
+    if (xs.isEmpty()) None
+    else Some(xs.sum() / xs.size())
+```
+
 
 
