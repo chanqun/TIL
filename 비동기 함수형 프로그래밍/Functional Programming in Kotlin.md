@@ -304,5 +304,29 @@ fun mean(xs: List<Double>): Option<Double> =
     else Some(xs.sum() / xs.size())
 ```
 
+### 4.4 Encoding success and failure conditions with Either
 
+```kotlin
+sealed class Either<out E, out A>
+data class Left<out E>(val value: E) : Either<E, Nothing>()
+data class Right<out A>(val value: A) : Either<Nothing, A>()
+```
+
+
+- Throwing exceptions is not desirable and breaks referential transparency.
+- Throwing exceptions should be reserved for extreme situations where recovery
+is not possible.
+- You can achieve purely functional error handling by using data types that
+encapsulate exceptional cases.
+- The Option data type is convenient for encoding a simple success condition as
+Some or a failure as an empty None.
+- The Either data type can encode a success condition as Right or a failure condition as Left.
+- Functions prone to throwing exceptions may be lifted to be compliant with
+Option and Either types.
+- A series of Option or Either operations may be halted on the first failure
+encountered.
+- The for-comprehension is a construct that allows the fluid expression of a series of
+combinator calls.
+- The Arrow library, a functional companion to Kotlin, has the Either construct
+that allows for-comprehensions through binding methods to simplify code.
 
