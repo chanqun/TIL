@@ -330,3 +330,10 @@ combinator calls.
 - The Arrow library, a functional companion to Kotlin, has the Either construct
 that allows for-comprehensions through binding methods to simplify code.
 
+4장 스터디
+
+
+js promise (flatmap 계속하는 것 같다), kotlin coroutine, 
+함수형 형식을 유지해주는 것이 webFlux Mono 또는 Flux chain 안에서 처리가 된다.
+
+함수형 스타일로 비동기 처리한다.
