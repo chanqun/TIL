@@ -200,3 +200,25 @@ This makes it easy to add new behaviors to existing data structures but makes it
 
 
 ## Chapter 7 - Error Handling
+
+### Use Exceptions Rather Than Return Codes
+
+### Write Your Try-Catch-Finally Statement First
+
+### Use Unchecked Exceptions
+checked exception은 상위 레벨 메소드에서 하위 레벨 메소드의 디테일에 대해 알아야 하기 때문에 캡슐화 또한 깨진다.
+
+### Provide Context with Exceptions
+
+### Define Exceptions Classes in Terms of a Caller's Need
+
+### Define the Normal Flow
+
+### Don't Return Null
+
+
+### Don't Pass Null
+Returning null from methods is bad, but passing null into methods is worse. 
+Unless you are working with an API which expects you to pass null, you should avoid passing null in your code whenever possible.
+
+
