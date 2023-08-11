@@ -222,3 +222,24 @@ Returning null from methods is bad, but passing null into methods is worse.
 Unless you are working with an API which expects you to pass null, you should avoid passing null in your code whenever possible.
 
 
+## Chapter 8 - Boundaries
+
+### Using Third-party Code
+There is a natural tension between the provider of an interface and the user of an interface.
+Providers of third-party packages and frameworks strive for broad applicability so they can work in many environments and appeal to a wide audience. 
+Users, on the other hand, want an interface that is focused on their particular needs. 
+This tension can cause problems at the boundaries of our systems.
+
+
+### Exploring and Learning Boundaries
+
+### Learning Tests Are Better Than Free
+
+### Clean Boundaries
+
+Good software designs accommodate change without huge investments and rework. 
+When we use code that is out of our control, special care must be taken to protect our investment and make sure future change is not too costly.
+
+Code at the boundaries needs clear separation and tests that define expectations.
+
+We manage third-party boundaries by having very few places in the code that refer to them. We may wrap them as we did with Map, or we may use an ADAPTER to convert from our perfect interface to the provided interface.
