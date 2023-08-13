@@ -243,3 +243,36 @@ When we use code that is out of our control, special care must be taken to prote
 Code at the boundaries needs clear separation and tests that define expectations.
 
 We manage third-party boundaries by having very few places in the code that refer to them. We may wrap them as we did with Map, or we may use an ADAPTER to convert from our perfect interface to the provided interface.
+
+
+## Chapter 9 - Unit Tests
+
+### The Three Laws of TDD
+
+First Law : You may not write production code until you have written a failing unit test
+Second Law : You may not write more of a unit test than is sufficient to fail, and not compiling is failing
+Third Law : You may not write more production code than is sufficient to pass the currently failing test
+
+### Keeping Tests Clean
+
+### Clean Tests
+What makes a clean test? Three things. Readability, readability, and readability.
+The same thing that makes all code readable: clarity, simplicity, and density of expression.
+
+
+### One Accept per Test
+
+### Single Concept per Test
+
+
+### F.I.R.S.T
+Clean tests follow five other rules that form the above acronym
+
+- Fast
+- Independent
+- Repeatable
+- Self-Validating
+- Timely
+
+
+## Chapter 10 - Classes
