@@ -276,3 +276,26 @@ Clean tests follow five other rules that form the above acronym
 
 
 ## Chapter 10 - Classes
+
+### Class Should Be Small!
+With functions we measured size by counting physical lines. 
+With classes we use a different measure. We count responsibilities.
+
+### The Single Responsibility Principal
+The Single Responsibility Principle (SRP)2 states that a class or module should have one, and only one, reason to change.
+
+### Cohesion
+You should try to separate the variables and methods into two or
+more classes such that the new classes are more cohesive.
+
+### Maintaining Cohesion Results in Many Small Classes
+
+### Organizing for Change
+Classes should be open for extension but closed for modification.
+
+### Isolating from Change
+If a system is decoupled enough to be tested in this way, it will also be more flexible and promote more reuse. 
+The lack of coupling means that the elements of our system are better isolated from each other and from change. 
+This isolation makes it easier to understand each element of the system.
+By minimizing coupling in this way, our classes adhere to another class design princi- ple known as the Dependency Inversion Principle (DIP).
+In essence, the DIP says that our classes should depend upon abstractions, not on concrete details.
