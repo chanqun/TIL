@@ -297,5 +297,28 @@ Classes should be open for extension but closed for modification.
 If a system is decoupled enough to be tested in this way, it will also be more flexible and promote more reuse. 
 The lack of coupling means that the elements of our system are better isolated from each other and from change. 
 This isolation makes it easier to understand each element of the system.
-By minimizing coupling in this way, our classes adhere to another class design princi- ple known as the Dependency Inversion Principle (DIP).
+By minimizing coupling in this way, our classes adhere to another class design principle known as the Dependency Inversion Principle (DIP).
 In essence, the DIP says that our classes should depend upon abstractions, not on concrete details.
+
+## Chapter 11 - Systems
+
+### Separate Constructing a System from Using it
+We should modularize this process separately from the normal runtime logic and we should make sure that we have a global, 
+consistent strategy for resolving our major dependencies.
+
+### Separation of Main
+Factories, Dependency Injection
+
+### Scaling Up
+
+### Cross-Cutting Concerns
+Java Proxies, Pure Java AOP Framework, AspectJ
+
+### Test Drive the System Architecture
+
+### Optimize Decision Making
+
+### Use Standards Wisely, When They Add Demonstrable Value
+### System Need Domain-Specific Languages
+
+
