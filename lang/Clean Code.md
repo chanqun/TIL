@@ -321,4 +321,33 @@ Java Proxies, Pure Java AOP Framework, AspectJ
 ### Use Standards Wisely, When They Add Demonstrable Value
 ### System Need Domain-Specific Languages
 
+## Chapter 12 - Emergence
 
+### Getting Clean via Emergent Design
+Kent Beck’s four rules of Simple Design are of significant help in creating well-designed software.
+
+- Runs all the tests
+- Contains no duplication
+- Expresses the intent of the programmer
+- Minimizes the number of classes and methods
+
+
+### Simple Design Rule 1 : Runs All the Tests
+
+### Simple Design Rules 2-4 : Refactoring
+
+### No Duplication
+“reuse in the small” can cause system complexity to shrink dramatically.
+
+### Expressive
+- You can express yourself by choosing good names. 
+- You can also express yourself by keeping your functions and classes small.
+- You can also express yourself by using standard nomenclature.
+- Well-written unit tests are also expressive.
+- But the most important way to be expressive is to try.
+
+### Minimal Classes and Methods
+SRP can be taken too far. In an effort to make our classes and methods small, we might create too many tiny classes and methods.
+
+### Conclusion
+Following the practice of simple design can and does encourage and enable developers to adhere to good principles and patterns that otherwise take years to learn.
