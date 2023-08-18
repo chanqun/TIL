@@ -351,3 +351,87 @@ SRP can be taken too far. In an effort to make our classes and methods small, we
 
 ### Conclusion
 Following the practice of simple design can and does encourage and enable developers to adhere to good principles and patterns that otherwise take years to learn.
+
+## Chapter 13 - Concurrency
+
+### Why Concurrency?
+
+### Myths and Misconceptions
+
+- Concurrency always improves performance.
+- Design does not change when writing concurrent programs.
+- Understanding concurrency issues is not important when working with a container such as a Web or EJB container.
+- Concurrency incurs some overhead, both in performance as well as writing additional code.
+- Correct concurrency is complex, even for simple problems.
+- Concurrency bugs aren’t usually repeatable, so they are often ignored as one-offs2 instead of the true defects they are.
+- Concurrency often requires a fundamental change in design strategy.
+
+### Concurrency Defense Principles
+
+#### Single Responsibility Principle
+- You will forget to protect one or more of those places—effectively breaking all code that modifies that shared data.
+- There will be duplication of effort required to make sure everything is effectively guarded (violation of DRY7).
+- It will be difficult to determine the source of failures, which are already hard enough to find.
+
+Recommendation : Take data encapsulation to heart: severely limit the access of any data that may be shared
+
+#### Corollary: Use Copies of Data
+#### Corollary: Threads Should Be as Independent as Possible
+
+#### Know Your Library
+
+- Use the provided thread-safe collections.
+- Use the executor framework for executing unrelated tasks.
+- Use nonblocking solutions when possible.
+- Several library classes are not thread safe.
+
+#### Thread-Safe Collections
+ReentrantLock
+A lock that can be acquired in one method and released in another.
+Semaphore
+An implementation of the classic semaphore, a lock with a count.
+CountDownLatch
+A lock that waits for a number of events before releasing all threads waiting on it. This allows all threads to have a fair chance of starting at about the same time.
+
+#### Know Your Execution Models
+Bound Resources
+Resources of a fixed size or number used in a concurrent environ- ment. Examples include database connections and fixed-size read/ write buffers.
+Mutual Exclusion
+Only one thread can access shared data or a shared resource at a time.
+Starvation
+One thread or a group of threads is prohibited from proceeding for an excessively long time or forever. For example, always let- ting fast-running threads through first could starve out longer run- ning threads if there is no end to the fast-running threads.
+Deadlock
+Two or more threads waiting for each other to finish. Each thread has a resource that the other thread requires and neither can finish until it gets the other resource.
+Livelock
+Threads in lockstep, each trying to do work but finding another “in the way.” Due to resonance, threads continue trying to make progress but are unable to for an excessively long time— or forever.
+
+#### Producer-Consumer
+
+#### Readers-Writers
+
+#### Dining Philosophers
+
+### Beware Dependencies Between Synchronized Methods
+- Client-Based Locking—Have the client lock the server before calling the first method and make sure the lock’s extent includes code calling the last method.
+- Server-Based Locking—Within the server create a method that locks the server, calls all the methods, and then unlocks. Have the client call the new method.
+- Adapted Server—create an intermediary that performs the locking. This is an exam- ple of server-based locking, where the original server cannot be changed.
+
+### Keep Synchronized Sections Small
+
+### Writing Correct Shut-Down Code Is Hard
+Think about shut-down early and get it working early. 
+It’s going to take longer than you expect. Review existing algorithms because this is probably harder than you think.
+
+### Testing Threaded Code
+Write tests that have the potential to expose problems and then run them frequently, with different programatic configurations and system configurations and load. 
+If tests ever fail, track down the failure. Don’t ignore a failure just because the tests pass on a subsequent run.
+
+- Treat spurious failures as candidate threading issues.
+- Get your nonthreaded code working first.
+- Make your threaded code pluggable.
+- Make your threaded code tunable.
+- Run with more threads than processors.
+- Run on different platforms.
+- Instrument your code to try and force failures.
+
+
