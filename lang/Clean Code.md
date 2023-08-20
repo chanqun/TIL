@@ -337,7 +337,7 @@ Kent Beck’s four rules of Simple Design are of significant help in creating we
 ### Simple Design Rules 2-4 : Refactoring
 
 ### No Duplication
-“reuse in the small” can cause system complexity to shrink dramatically.
+"reuse in the small" can cause system complexity to shrink dramatically.
 
 ### Expressive
 - You can express yourself by choosing good names. 
@@ -403,7 +403,7 @@ One thread or a group of threads is prohibited from proceeding for an excessivel
 Deadlock
 Two or more threads waiting for each other to finish. Each thread has a resource that the other thread requires and neither can finish until it gets the other resource.
 Livelock
-Threads in lockstep, each trying to do work but finding another “in the way.” Due to resonance, threads continue trying to make progress but are unable to for an excessively long time— or forever.
+Threads in lockstep, each trying to do work but finding another "in the way." Due to resonance, threads continue trying to make progress but are unable to for an excessively long time— or forever.
 
 #### Producer-Consumer
 
@@ -433,5 +433,21 @@ If tests ever fail, track down the failure. Don’t ignore a failure just becaus
 - Run with more threads than processors.
 - Run on different platforms.
 - Instrument your code to try and force failures.
+
+
+## Chapter 14 - Successive Refinement
+
+It is that programming is a craft more than it is a science.
+To write clean code, you must first write dirty code and then clean it.
+
+
+We learned this truth in grade school when our teachers tried (usually in vain) to get us to write rough drafts of our compositions. 
+The process, they told us, was that we should write a rough draft, then a second draft, then several subsequent drafts until we had our final version. Writing clean compositions, they tried to tell us, is a matter of successive refinement.
+Once it’s "working," they move on to the next task, leaving the "working" program in whatever state they finally got it to "work." 
+Most seasoned programmers know that this is professional suicide.
+
+Bad schedules can be redone, bad requirements can be redefined. 
+Bad team dynamics can be repaired. But bad code rots and ferments, becoming an inexorable weight that drags the team down.
+So the solution is to continuously keep your code as clean and simple as it can be. Never let the rot get started.
 
 
