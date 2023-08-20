@@ -451,3 +451,23 @@ Bad team dynamics can be repaired. But bad code rots and ferments, becoming an i
 So the solution is to continuously keep your code as clean and simple as it can be. Never let the rot get started.
 
 
+## Chapter 15 - JUnit Internals
+
+## Chapter 16 - Refactoring SerialDate
+
+### First, Make It Work
+### Then Make It Right
+
+So once again we’ve followed the Boy Scout Rule. We’ve checked the code in a bit cleaner than when we checked it out. 
+It took a little time, but it was worth it.
+
+## Chapter 17 - Smells and Heuristics
+
+### Comments
+- Inappropriate Information
+- Obsolete Comment
+- Redundant Comment
+- Poorly Written Comment
+- Commented-Out Code
+
+### Environment
