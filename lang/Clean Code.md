@@ -522,3 +522,26 @@ It took a little time, but it was worth it.
 - Avoid Long Import Lists by Using WildCards
 - Don't Inherit Constants
 - Constants versus Enums
+
+### Names
+- Choose Descriptive Names
+- Choose Names at the Appropriate Level of Abstraction
+- Use Standard Nomenclature Where Possible
+- Unambiguous Names
+- Use Long Names for Long Scopes
+- Avoid Encodings
+- Names Should Describe Side-Effect
+
+### Tests
+- Insufficient Tests
+- Use a Coverage Tool
+- Don't Skip Trivial Tests
+- An Ignored Test Is a Question about an Ambiguity
+- Test Boundary Conditions
+- Exhaustively Test Near Bugs
+- Patterns of Failure Are Revealing
+- Test Coverage Patterns Can Be Revealing : Looking at the code that is or is not executed by the passing tests gives clues to why the failing tests fail.
+- Tests Should Be Fast
+
+
+
