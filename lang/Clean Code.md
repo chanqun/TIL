@@ -471,3 +471,54 @@ It took a little time, but it was worth it.
 - Commented-Out Code
 
 ### Environment
+- Build Requires More Than One Step
+- Test Require More Than One Step
+
+### Functions
+- Too Many Arguments
+- Output Arguments
+- Flag Arguments
+- Dead Function
+
+### General
+- Multiple Languages in One Source File
+- Obvious Behavior Is Unimplemented
+- Incorrect Behavior at the Boundaries
+- Overridden Safeties
+- Duplication
+- Code at Wrong Level of Abstraction
+- Base Classes Depending on Their Derivatives
+- Too Much Information
+- Dead Code
+- Vertical Separation
+- Inconsistency
+- Clutter
+- Artificial Coupling
+- Feature Envy
+- Selector Arguments
+- Obscured Intent
+- Misplaced Responsibility
+- Inappropriate Static
+- Use Explanatory Variables
+- Function Names Should Say What They Do
+- Understand the Algorithm
+- Make Logical Dependencies Physical
+- Prefer Polymorphism to If/Else or Switch/Case
+- Follow Standard Conventions
+- Replace Magic Numbers with Names Constants
+- Be Precise
+- Structure over Convention
+- Encapsulate Conditionals
+- Avoid Negative Conditionals
+- Functions Should Do One Thing
+- Hidden Temporal Couplings
+- Don't Be Arbitrary
+- Encapsulate Boundary Conditions
+- Functions Should Descend Only One Level of Abstraction
+- Keep Configurable Data at High Levels
+- Avoid Transitive Navigation
+
+### Java
+- Avoid Long Import Lists by Using WildCards
+- Don't Inherit Constants
+- Constants versus Enums
