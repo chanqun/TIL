@@ -378,3 +378,40 @@ foldRight는 list를 Cons로 바꾸는 것이라고 생각하자
 zipWith, zipAll - 두 스트림의 길이 차이
 끝나면 끝, 끝나도 긴 것으로 맞춘다 
 
+## Part 6 Purely functional state
+
+By viewing the program state as a transition or action that is passed along as context during a series of transformations, 
+we can contain and localize the complexity associated with state machines.
+We can even take this a step further by hiding these state transitions altogether through the use of higher-order combinator functions that pass along state actions implicitly in the background.
+
+
+### 6.1 Generating random numbers using side effects
+
+Kotlin random
+These methods aren’t referentially transparent because the state updates are performed as a side effect.
+this implies that they aren’t as testable, composable, modular, and easily parallelized as they could be.
+
+### 6.2 Purely functional random number generation
+
+### 6.3 Making stateful APIs pure
+
+### 6.4 An implicit approach to passing state actions
+#### 6.4.1 More power by combining state actions
+We would like to keep following this approach when implementing intDouble and doubleInt from exercise 6.3, but map simply can’t do this. We need a new combinator, map2, that can combine two RNG actions into one using a binary rather than a unary function.
+
+#### 6.4.2 Recursive retries through nested state actions
+
+#### 6.4.3 Applying the combinator API to the initial example
+
+### 6.5 A general state action data type
+
+### 6.6 Purely functional imperative programming
+
+- Updating state explicitly allows the recovery of referential transparency, which is lost in situations when mutating state.
+- Stateful APIs are made pure by computing each subsequent state, not mutating the existing state.
+- A function that computes a state based on a previous state is known as a state action or state transition.
+- You can use combinators to abstract repetitive state transition patterns and even combine and nest state actions when required.
+- You can adopt an imperative style when dealing with state transitions through the use of for-comprehensions.
+- Arrow offers a proper State API and associated data type to model all the con- cepts dealt with in this chapter.
+
+
