@@ -131,5 +131,17 @@ SQL (Structed Query Language)
 B-Tree (Binary Tree)
 
 ## Lecture 8
+HTML, CSS, Javascript
 
+internet primer
+- ip address
 
+DHCP (Dynamic Hosts Configuration Protocol)
+DNS
+Access Point
+
+## Lecture 9
+Flask
+
+## Lecture 10
+Emoji
