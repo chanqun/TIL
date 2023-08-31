@@ -58,4 +58,78 @@ plaintext -> cipher -> ciphertext
 
 encrypt <-> decrypt
 
+## Lecture 3
+
+linear search -> binary search
+
+Big O
+The running time is at most.
+
+Omega
+The running time is at least.
+
+Theta
+The running time is on average.
+
+## Lecture 4
+
+### hexadeciaml
+2개의 16진수는 1byte의 2진수로 변환된다.
+
+full red. full green. full blue = white (255, 255, 255) FFFFFF
+no red. no green. no blue = black (0, 0, 0) 000000
+red (255, 0, 0) FF0000
+green (0, 255 0) 00FF00
+blue (0, 0, 255) 0000FF
+
+### address
+inside of your computer’s memory has unique address
+
+### pointer
+변수의 adrress를 저장한다.
+
+pointer는 우편함과 같다.
+우편함에는 어떤 유형의 파일을 저장한다.
+집/회사 주소와 같이 컴퓨터 메모리에도 주소가 있다.
+
+### typedef
+C 언어에서는 string이라는 자료형이 없어서
+별도로 포인터를 정의하고 배열의 순서를 설정하는 작업이 필요하다.
+
+### Memory
+malloc
+변수의 memory allocation을 정의한다.
+정해진 크기 만큼 메모리를 heap 영역에 할당한다.
+
+### heap overflow
+stack overflow라고도 한다.
+memory 용량이 heap 영역을 넘어간다.
+
+### virtual memory
+실행 프로그램 메모리의 크기에 따라 자동으로 확보되는 여유 메모리 공간
+
+### valgrind grant
+memory leak과 buffer overflow를 확인한다.
+메모리 누수가 발생하면 시스템 성능이 낮아진다.
+
+### file I/O
+fopen 함수에서 r은 읽기, w는 쓰기, a는 덧붙이기 모드를 불러온다.
+fclose 함수로 작업을 종료한다.
+
+
+## Lecture 5
+
+linked list, queue, stack, trie, hash table, dictionary
+
+## Lecture 6
+Python
+
+## Lecture 7
+CSV (comma separated values)
+
+SQL (Structed Query Language)
+B-Tree (Binary Tree)
+
+## Lecture 8
+
 
