@@ -415,3 +415,40 @@ We would like to keep following this approach when implementing intDouble and do
 - Arrow offers a proper State API and associated data type to model all the con- cepts dealt with in this chapter.
 
 
+## Part 7 Purely functional parallelism
+
+### 7.1 Choosing data types and functions
+#### 7.1.1 A data type for parallel computations
+
+```kotlin
+class Par<A>(val get: A)
+fun <A> unit(a: () -> A): Par<A> = Par(a())
+fun <A> get(a: Par<A>): A = a.get
+```
+
+#### 7.1.2 Combining parallel computations to ensure concurrency
+Let’s see if we can avoid the pitfall mentioned earlier of combining unit and get. 
+
+#### 7.1.3 Making computations to be forked explicity
+
+### 7.2 Picking a representation
+
+### 7.3 Refining the API with the end user in mind
+
+### 7.4 Reasoning about the API in terms of algebraic equations
+#### The law of mapping
+#### The law of forking
+#### Using actors for a non-blocking implementation
+
+
+### 7.5 Refining combinators to their most general form
+
+
+
+- Functional API design is an iterative and exploratory process driven by real world examples.
+- A purely functional library that deals with parallelization is a perfect example to demonstrate API design.
+- Data types and their associated functions are born out of exploring domain examples.
+- Treating an API as you would an algebraic equation leads to following the types to a concrete implementation.
+- Laws help define constraints on operations, lead to implementation choices, and validate properties.
+- Combinators can often be generalized to broaden their application across many different applications and scenarios.
+- Effective library design separates the description of computations from the interpreter responsible for running them.
