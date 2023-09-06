@@ -417,6 +417,9 @@ We would like to keep following this approach when implementing intDouble and do
 
 ## Part 7 Purely functional parallelism
 
+동시성을 만드는 것은 side effect다.
+순수 함수형 프로그래밍 처럼 만드는 것이 7장의 묘미다.
+
 ### 7.1 Choosing data types and functions
 #### 7.1.1 A data type for parallel computations
 
@@ -452,3 +455,5 @@ Let’s see if we can avoid the pitfall mentioned earlier of combining unit and 
 - Laws help define constraints on operations, lead to implementation choices, and validate properties.
 - Combinators can often be generalized to broaden their application across many different applications and scenarios.
 - Effective library design separates the description of computations from the interpreter responsible for running them.
+
+스터디 종료
