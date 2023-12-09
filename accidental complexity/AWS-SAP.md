@@ -67,4 +67,63 @@ AWS는 공개키만 보관. 인스턴스가 시작할 때 내부로 복사
 
 
 ## ELB
+ELB는 다수 EC2 Instance로 인입되는 Application Traffic을 자동으로 분산/분배 (L4 Switch)
+
+
+CLB (Classic)
+서비스 별로 Classic Load Balancer 구성
+ELB별 DNS Record 등록
+
+ALB (Application)
+다양한 서비스를 하나의 Application Load Balancer로 통합 (URL Path 기반 라우팅 적용)
+모든 서비스에 대하여 하나의 DNS Record만 필요
+
+NLB (Network)
+고정 IP 제공
+매우 낮은 Latency
+
+## Auto Scaling
+
+## Storage
+![aws-storage.png](../image/aws-storage.png)
+
+EBS (Elastic Block Store)
+
+EFS (Elastic File System)
+
+S3
+
+Storage Gateway
+
+## Database
+
+RDS
+
+Aurora
+(MySQL과 PostgreSQL 호환성 제공)
+
+DW - Redshift
+
+Dynamo DB
+
+DocumentDB
+
+Elastic Cache
+
+Opensearch 
+로그 분석, 어플리케이션 모니터링, full-text 검색
+Logstash, Kibana를 제공하며 Elasticsearch의 표준 API 사용 가능
+
+
+## CloudWatch
+고해상도 경보, 로그 및 매트릭 상관 관계, 이상 탐지, ServiceLens, Synthetics Canary
+
+MSK - aws kafka
+
+키워드 리스트
+https://velog.io/@joyfulbean/AWS-SAP-Dump-%EB%AC%B8%EC%A0%9C
+https://sedurm.notion.site/AWS-Certified-Solutions-Architect-Professional-26e2106bacd94cfca6e1879c6ff06736
+
+
+
 
