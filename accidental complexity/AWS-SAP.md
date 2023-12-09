@@ -53,4 +53,18 @@ Transit Gateway 또는 Direct Connect Gateway를 이용해서 vpc를 한번에 �
 분석
 
 
+## EC2
+8xlarge = 2 * 4xlarge
+
+## EC2 키페어
+키페어 동작 방식
+EC2 인스턴스에 접근하기 위한 인증 방식
+ID/비밀번호 인증보다 안전한 인증 방식
+AWS는 공개키만 보관. 인스턴스가 시작할 때 내부로 복사
+시작(Launch)시 Public Key를
+~/.ssh/authorized_keys에 추가
+개인키는 사용자가 안전하게 보관 및 관리
+
+
+## ELB
 
