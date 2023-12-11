@@ -73,3 +73,33 @@ elasticity 탄력성
 
 EBS Elastic Block Store
 RAID 0, RAID 1, RAID 5, RAID 6,
+RAID 0  디스
+
+
+솔리드 스테이트 드라이브(SSD)으로 지원되는 프로비저닝된 IOPS 볼륨은 짧은 지연 시간이 필요한 중요한 IOPS 집약적이고 처리량 집약적인 워크로드를 위해 설계된 최고 성능의 Elastic Block Store(EBS) 스토리지 볼륨
+
+EBS 최적화 처리량은 활용 가능한 총 IOPS를 제한합니다. 더 큰 처리량을 제공하는 EBSOptimized 인스턴스를 사용
+
+S3는 장기 저장에 좋다
+
+Amazon Kinesis 24시간 부터 최대 7일까지 데이터 보존 늘릴 수 있음,
+
+Amazon CloudTrail - 표준화된 보안 로깅 서비스
+CloudSearch - 검색 솔루션을 효율적인 비용으로 간단하게 설정, 관리 및 확장할 수 있음
+
+CloudFront는 캐시에서 콘텐츠를 제공하기 전에 뷰어 요청과 관련된 Lambda 함수를 트리거하여 매개변수를 정규화할 수 있음
+
+여러 User가 복수 계정에서 서로 다른 Role을 손쉽게 이동하면서 관리해야 할 경우를 위해 지난 해 교차 계정 접근 제어(Cross-Account Access) 기능
+
+Storage Gateway
+
+Route 53 가중치 라운드 로빈
+
+가중치 기반 리소스 레코드, 지연 시간 별칭 리소스 레코드 세트에서 "Evaluate Target Health"를 "Yes"
+
+SQS는 14일 동안만 저장
+SWF 워크플로 관리
+SES (Simple Email Service) 이메일 서비스 공급자
+
+Amazon RDS - AWS Security Token Service "AssumeRole" 
+
