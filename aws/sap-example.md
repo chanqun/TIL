@@ -103,3 +103,47 @@ SES (Simple Email Service) 이메일 서비스 공급자
 
 Amazon RDS - AWS Security Token Service "AssumeRole" 
 
+EMR의 빅 데이터 워크로드는 내결함성 특성으로 인해 중단되더라도 계속해서 처리할 수 있다.
+
+RRS (Reduced Redundancy Storage)
+
+Amazon Elastic Map Reduce
+
+AWS Key Management Service
+
+Amazon Data Lifecycle Manager를 사용하여 EBS 스냅샷 및 EBS-backed AMI의 생성, 보존 및 삭제를 자동화할 수 있습니다.
+
+
+고객 개인 정보를 유지하고 비용을 최소한으로 유지
+
+
+IAM & R53은 글로벌 서비스
+
+IAM 역할은 계정에 생성할 수 있는, 특정 권한을 지닌 IAM 자격 증명입니다.
+
+교차 계정 액세스
+
+최종적 일관성 SQS
+
+
+vCenter용 EC2 VM Import Connector
+
+웹 identity 패더레이션
+웹 자격 증명 연동을 사용하여 필요할 때 동적으로 임시 AWS 보안 자격 증명을 요청하도록 앱을 구축
+
+
+
+ 웹 서버 앞에 역방향 프록시 레이어를 구현하고 각 역방향 프록시 서버에 IDS/IPS 에이전트를 구성
+
+CloudFormation
+WS 리소스를 모델링하고 설정하여 리소스 관리 시간을 줄이고 AWS에서 실행되는 애플리케이션에 더 많은 시간을 사용하도록 해 주는 서비스
+
+Shield DDoS 방어 기능은 Route 53에 대한 CloudFront 트래픽을 지속적으로 검사
+
+Elastic Transcoder
+
+Cloud watch - rds,elb,route53
+
+
+VPC 간의 연결
+VPC Peering, VGW, DGW, TGW
