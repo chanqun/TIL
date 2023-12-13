@@ -98,7 +98,6 @@ Route 53 가중치 라운드 로빈
 가중치 기반 리소스 레코드, 지연 시간 별칭 리소스 레코드 세트에서 "Evaluate Target Health"를 "Yes"
 
 SQS는 14일 동안만 저장
-SWF 워크플로 관리
 SES (Simple Email Service) 이메일 서비스 공급자
 
 Amazon RDS - AWS Security Token Service "AssumeRole" 
@@ -147,3 +146,14 @@ Cloud watch - rds,elb,route53
 
 VPC 간의 연결
 VPC Peering, VGW, DGW, TGW
+
+BGP (Border Gateway Protocol) - 인터넷에서 데이터를 전송하는 데 가장 적합한 네트워크 경로를 결정하는 일련의 규칙
+
+CIDR 블록 Classless Inter-Domain Routing(CIDR)은 인터넷상의 데이터 라우팅 효율성을 향상시키는 IP 주소 할당 방법
+
+SWF - 완전한 관리가 가능한 클라우드 워크플로 웹 서비스로서, 복잡한 사용자 지정 코딩 워크플로 솔루션과 자동화 소프트웨어를 대체
+
+EIP (Elastic IP)
+
+TLS/SSL
+보안 소켓 계층(Secure Sockets Layer, SSL) 인증서는 종종 디지털 인증서로 불리며, 브라우저(사용자의 컴퓨터)와 서버(웹사이트) 사이의 암호화된 연결을 수립하는 데 사용
