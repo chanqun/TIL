@@ -157,3 +157,10 @@ EIP (Elastic IP)
 
 TLS/SSL
 보안 소켓 계층(Secure Sockets Layer, SSL) 인증서는 종종 디지털 인증서로 불리며, 브라우저(사용자의 컴퓨터)와 서버(웹사이트) 사이의 암호화된 연결을 수립하는 데 사용
+
+IPSec은 네트워크에서의 안전한 연결을 설정하기 위한 통신 규칙 또는 프로토콜 세트
+
+
+
+arn:aws:iam::123456789012:instance-profile/Webserver
+arn:aws:service:region:account:resource
