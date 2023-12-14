@@ -164,3 +164,28 @@ IPSec은 네트워크에서의 안전한 연결을 설정하기 위한 통신 �
 
 arn:aws:iam::123456789012:instance-profile/Webserver
 arn:aws:service:region:account:resource
+
+
+IAM EC2 종료 방지는 사용자별로 적용되지 않음
+
+dynamodb는 사용한 만큼 비용을 지불
+Global Secondary Index와 함께 DynamoDB를 사용
+secondary index란 대체(altanative) key와 테이블의 다른 attribute들의 subset을 포함하는 데이터 구조입니다.
+테이블과 마찬가지로 index에 쿼리를 해서 데이터를 가져올 수 있다.
+
+S3에서 사용자 콘텐츠를 제공합니다. CloudFront를 사용하고 각 지역의 ELB 간에 Route53 지연 시간 기반 라우팅
+각 지역의 로컬 DynamoDB
+
+bastion and NAT instance
+Bastion 호스트는 가상 프라이빗 클라우드(VPC)의 프라이빗 및 퍼블릭 서브넷에 위치한 Linux 인스턴스에 대한 보안 액세스를 제공
+
+ELB는 SNI 기반 인증서를 지원
+
+SAML 2.0 호환 자격 증명 공급자(IDP)를 사용하여 NOC 회원에게 AWS Single Sign-On(SSO)
+
+NACL Network Access Control List
+
+AWS Ops Works
+
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html#default-%20security-group
+
