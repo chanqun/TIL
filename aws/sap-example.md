@@ -189,3 +189,37 @@ AWS Ops Works
 
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html#default-%20security-group
 
+NAT 인스턴스에서 소스/대상 확인 속성
+
+VPC 내의 모든 서브넷은 서로 통신
+
+
+/16의 CIDR 블록 마스크는 가장 작은 범위
+Classless Inter-Domain Routing(CIDR)
+
+
+S3 HTTP 200 결과 코드와 MD5 체크섬이 함께 표시
+
+IAM GROUP 사용자 모음
+
+
+데이터베이스 진단 팩과 데이터베이스 튜닝 팩 (오라클 엔터프라이즈 에디션)
+
+CloudWatch CPU 사용률 종료 기능
+
+단일 동적 DB 테이블에 대해 프로비저닝할 수 있는 최대 쓰기 처리량 40000 초과 AWS 문의
+
+프로비저닝(Provisioning)이란 어떠한 지식이나 자원 등을 미리 준비해놓고 요청이 들어왔을 때, 해당 요청에 맞게 공급하는 것
+
+ApplyImmediately
+
+Aws EMR
+Apache Spark, Apache Hive 및 Presto와 같은 오픈 소스 분석 프레임워크
+
+EC2 classic은 서비스 중지되긴함
+탄력적 IP 다시 연결해야함
+
+Amazon Cognito
+개발자 중심의 비용 효율적인 고객 ID 및 액세스 관리(CIAM) 서비스
+
+Amazon EC2 인스턴스에 설치된 AWS CodeDeploy 에이전트는 퍼블릭 AWS CodeDeploy 및 Amazon S3 서비스 엔드포인트에 액세스할 수 있어야 한다.
