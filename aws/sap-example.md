@@ -251,3 +251,12 @@ ArnEquals, ArnLike
 
 If the user is creating an internal ELB, he should use only private subnets.
 
+AWS Direct Connect 1, 10 및 100Gbps
+
+NotPrincipal 요소를 사용하여 IAM 사용자, 연동 사용자, IAM 역할, AWS 계정, AWS 서비스 또는 리소스에 대한 액세스가 허용되거나 거부되지 않는 기타 보안 주체를 지정
+
+MySQL RDS로 PIOPS를 활성화하려는 경우 최소 저장 크기는 100GB
+
+IAM의 정책 평가 로직은 "허용"
+
+ELB와 인스턴스는 별도의 서브넷에 있을 수 있습니다
