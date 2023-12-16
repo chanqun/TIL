@@ -221,6 +221,7 @@ EC2 classic은 서비스 중지되긴함
 
 Amazon Cognito
 개발자 중심의 비용 효율적인 고객 ID 및 액세스 관리(CIAM) 서비스
+Enhanced and basic
 
 Amazon EC2 인스턴스에 설치된 AWS CodeDeploy 에이전트는 퍼블릭 AWS CodeDeploy 및 Amazon S3 서비스 엔드포인트에 액세스할 수 있어야 한다.
 
@@ -232,4 +233,21 @@ ENI 탄력적 네트워크 인터페이스
 VPC는 IAM과도 작동하며 조직은 다양한 VPC 서비스에 액세스할 수 있는 IAM 사용자를 생성할 수 있음
 
 IAM, the maximum length for a role name is 64 characters.
+
+인스턴스에 둘 이상의 네트워크 인터페이스를 연결한 경우 AWS는 퍼블릭 IP를 할당할 수 없음
+
+aws: SourceIp
+
+
+AWS EC2에서는 한 번에 20개의 온디맨드 인스턴스와 100개의 스팟 인스턴스를 실행할 수 있습니다. 
+
+g2.2xlarge는 5개
+
+Provisioned IOPS
+For EBS volumes you can specify a consistent IOPS rate when you create the volume.
+
+
+ArnEquals, ArnLike
+
+If the user is creating an internal ELB, he should use only private subnets.
 
