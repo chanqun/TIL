@@ -310,3 +310,22 @@ Connect 토큰이 앱에서 Amazon Cognito로 전달되고, Amazon Cognito는 �
 프로비저닝된 IOPS(SSD) 볼륨의 크기는 4GiB~16TiB이며 볼륨당 최대 20,000IOPS를 프로비저닝할 수 있다.
 
 If your policy has multiple condition operators or multiple keys attached to a single condition operator, the conditions are evaluated using a logical AND. If a single condition operator includes multiple values for one key, that condition operator is evaluated using a logical OR.
+
+
+VPC에서 DHCP 옵션 세트를 생성한 후 수정할 수 없음
+
+AWS OpsWorks
+Puppet 또는 Chef를 통해 인스턴스나 온프레미스 환경에서 서버가 구성, 배포되는 방법을 자동화하는 구성 관리 서비스
+
+IAM 사용자만 자신의 보안 액세스 키쌍!! 사용하여 EC2 인스턴스에 연결할 수 있도록 허용
+
+기본적으로 IAM 사용자의 임시 보안 자격 증명은 최대 12시간 동안 유효하지만, 기간은 15분에서 최대 36시간
+
+Cloud Block Storage - RAID 10 (raid0 + raid1)
+raid https://hihighlinux.tistory.com/64
+
+ADM - amazon device messaging
+
+가장 비용 효율적인 솔루션은 문제 똑바로 읽기!!
+
+Ephemeral
