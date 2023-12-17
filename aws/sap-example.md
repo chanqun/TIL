@@ -294,3 +294,19 @@ IAM에서 다음 중 임시 보안 자격 증명 정의된 기간 동안 유효
 라우팅 테이블당 허용되는 최대 BGP 공지 경로 수는 100개
 
 동일한 계정의 여러 IAM 사용자가 동일한 로그인 ID를 가질 수 없음
+
+
+PIOPS는 256KB IO 청크를 기준으로 하는 SSD 기반 스토리지에서 결정
+
+사용자는 완료 시 Vault 인벤토리 검색 작업 완료 및 아카이브 검색 작업 완료와 같은 알림을 트리거하는 특정 작업을 선택할 수 있다.
+
+ENI에는 기본 개인 IP 주소, 하나 이상의 보조 개인 IP 주소, 개인 IP 주소당 하나의 탄력적 IP 주소, 하나의 공용 IP 주소, 하나 이상의 보안 그룹, MAC 주소, 소스/대상과 같은 속성이 포함될 수 있다.
+
+탄력적 네트워크 인터페이스(ENI)가 연결된 인스턴스를 등록하면 로드 밸런서는 인스턴스 기본 인터페이스(eth0)의 기본 IP 주소로 트래픽을 라우팅
+
+모바일 앱은 공급자의 SDK를 사용하여 ID 공급자(IdP)를 인증합니다. 최종 사용자가 IdP로 인증되면 IdP에서 반환된 OAuth 또는 OpenID
+Connect 토큰이 앱에서 Amazon Cognito로 전달되고, Amazon Cognito는 사용자 및 세트에 대한 새 Cognito ID를 반환합니다. 임시, 제한된 권한의 AWS 자격 증명.
+
+프로비저닝된 IOPS(SSD) 볼륨의 크기는 4GiB~16TiB이며 볼륨당 최대 20,000IOPS를 프로비저닝할 수 있다.
+
+If your policy has multiple condition operators or multiple keys attached to a single condition operator, the conditions are evaluated using a logical AND. If a single condition operator includes multiple values for one key, that condition operator is evaluated using a logical OR.
