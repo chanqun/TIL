@@ -369,3 +369,36 @@ VPN 장치가 BGP(Border Gateway Protocol)를 지원하는 경우 VPN 연결을 
 VPC 피어링 연결을 사용하면 사용자는 마치 개인 IP 주소를 사용하여 피어 VPC 간에 트래픽을 라우팅할 수 있다.
 
 AWS Direct Connect는 인터넷 대신 AWS 클라우드 서비스를 활용할 수 있는 네트워크 서비스
+
+
+온프레미스 호스트에 설치할 수 있는 Task Runner 패키지를 제공 - 서비스를 지속적으로 폴링
+
+IAM NotAction 요소를 사용하면 작업 목록에 대한 예외를 지정할 수 있다.
+
+aws:MultiFactorAuthAge
+
+
+AWS Cloud Hardware Security Module(HSM)
+HSM 클라이언트가 실행 중인 서버 또는 인스턴스에는 HSM에 대한 네트워크(IP) 연결이 있어야 함
+
+작업 실행기는 PollForTask를 호출하여 AWS Data Pipeline에서 수행할 작업을 수신
+
+AWS에서는 사용자가 프로비저닝된 IOPS 200마다 최적의 평균 대기열 길이를 1로 목표로 삼고 애플리케이션 요구 사항에 따라 해당 값을 조정할 것을 권장
+
+IOPS와 EBS 볼륨의 비율 50
+5000IPOS 100GB
+
+ELB(Elastic Load Balancer)는 여러 VPC 사이가 아닌 VPC 내의 인스턴스 수준에서 작동
+
+c4.8xlarge 인스턴스가 제공하는 네트워킹 성능은 10기가비트
+
+SAML 토큰에서 발행된 클레임을 편집해야 하는 두 가지 이유
+NameIdentifier 클레임은 AD에 저장된 사용자 이름과 동일할 수 없으며 앱에는 다른 클레임 URI 세트가 필요
+
+CloudHSM
+포트 22(SSH용) 또는 포트 3389(RDP용)가 열려 있는 보안 그룹
+
+IAM 거부가 허용보다 우선
+
+Memcached의 경우 11211이고 Redis의 경우 6379
+
