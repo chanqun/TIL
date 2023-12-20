@@ -331,10 +331,14 @@ ADM - amazon device messaging
 Ephemeral
 
 
-200
-~
-206
+NAT (Network Address Translation)
 
+The source/destination checks should be disabled on the NAT instance.
+
+VPC를 사용하면 사용자는 자신의 인스턴스에 대해 여러 개인 IP 주소를 지정할 수 있다.
+
+
+AWS GovCloud(미국) 리전은 미국 국제 무기 거래 규정(ITAR) 요구 사항을 준수
 
 사용자가 구성에 사용된 IAM 프로필과 같은 추가 매개변수를 원하는 경우 다음 명령을 실행해야 합니다. as-describe-launch-configs --show-long
 
@@ -359,3 +363,9 @@ GetFederationToken은 IAM 사용자 또는 AWS 계정 루트 사용자가 연동
 
 테넌시란?
 EC2 인스턴스가 물리적 하드웨어에 분산되는 방식을 정의하고 요금에 영향을 줌
+
+VPN 장치가 BGP(Border Gateway Protocol)를 지원하는 경우 VPN 연결을 구성할 때 동적 라우팅을 지정해야 한다. 기기가 BGP를 지원하지 않는 경우 정적 라우팅을 지정해야 한다.
+
+VPC 피어링 연결을 사용하면 사용자는 마치 개인 IP 주소를 사용하여 피어 VPC 간에 트래픽을 라우팅할 수 있다.
+
+AWS Direct Connect는 인터넷 대신 AWS 클라우드 서비스를 활용할 수 있는 네트워크 서비스
