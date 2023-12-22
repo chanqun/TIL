@@ -424,5 +424,12 @@ Auto Scaling은 사용자 지정 상태 확인을 사용하여 인스턴스의 �
 
 Auto Scaling 그룹이 두 개 이상의 인스턴스를 시작하는 경우 각 인스턴스의 휴지 기간은 해당 인스턴스가 시작된 후 시작
 
+Desired capacity
 
+Cluster placement group
+
+사용자가 Amazon EBS 지원 전용 인스턴스를 시작하면 EBS 볼륨은 단일 테넌트 하드웨어에서 실행되지 않음
+
+부팅 프로세스 중에 Amazon Machine Image paravirtual(PV) 가상화에서는 어떤 시스템을 사용
+PV-GRUB
 
