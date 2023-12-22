@@ -402,3 +402,27 @@ IAM 거부가 허용보다 우선
 
 Memcached의 경우 11211이고 Redis의 경우 6379
 
+EC2-Classic에서는 인스턴스를 최대 500개의 보안 그룹과 연결하고 보안 그룹에 최대 100개의 규칙을 추가할 수 있습니다. EC2-VPC에서는 네트워크 인터페이스를 최대 5개의 보안 그룹과 연결하고 보안 그룹에 최대 50개의 규칙을 추가할 수 있다
+
+
+Sid (statement ID) is an optional identifier that you provide for the policy statement. You can assign a Sid a value to each statement in a statement array.
+
+VPC는 비전용 EC2 인스턴스를 허용해야 함
+
+문제 똑바로 읽기 않은 구성은?
+
+Auto Scaling 그룹을 사용하여 두 개 이상의 로드 밸런서를 구성할 수 있음
+
+대기 기간은 하나의 조정 활동 종료(시작 또는 종료 가능)와 다른 조정 활동 시작(시작 또는 종료 가능) 사이의 시간 차이
+다른 CloudWatch 경보에 의해 변경되는 것을 허용하지 않음
+
+
+용자는 지정된 조건에 따라 자동으로 확장한 다음 축소하도록 AutoScaling 그룹을 구성할 수 있습니다. 이를 구성하려면 사용자는 CloudWatch 경보에 의해 트리거되는 정책을 설정
+
+
+Auto Scaling은 사용자 지정 상태 확인을 사용하여 인스턴스의 상태를 확인할 수 있습니다. 사용자 지정 상태 확인이 있는 경우 Auto Scaling에서 이 정보를 사용할 수 있도록 상태 확인의 정보를 Auto Scaling으로 보낼 수 있음
+
+Auto Scaling 그룹이 두 개 이상의 인스턴스를 시작하는 경우 각 인스턴스의 휴지 기간은 해당 인스턴스가 시작된 후 시작
+
+
+
