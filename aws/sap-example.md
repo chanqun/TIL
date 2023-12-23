@@ -433,3 +433,35 @@ Cluster placement group
 부팅 프로세스 중에 Amazon Machine Image paravirtual(PV) 가상화에서는 어떤 시스템을 사용
 PV-GRUB
 
+IAM은 사용자가 인스턴스 시작과 같은 AWS 리소스 및 작업을 수행해야 할 때 유용
+
+사용자는 단일 EC2 인스턴스에 두 개 이상의 보안 그룹을 연결할 수 있습니다. 이 경우 각 보안 그룹의 규칙이 효과적으로 집계되어 하나의 규칙 세트를 생성
+
+
+AWS EC2에서 보안 그룹을 구성하는 동안 사용자는 CIDR 표기법으로 IP 주소를 지정해야 합니다. CIDR IP 범위 10.20.30.40/32는 단일 IP 10.20.30.40에 대한 것임을 나타냄
+
+CIDR 형식
+
+
+태그 키는
+"aws:"라는 접두사를 가질 수 없음
+
+
+스냅샷은 Amazon EC2 API를 통해서만 사용할 수 있다.
+
+CloudFormation
+AWS 리소스를 모델링하고 설정하여 리소스 관리 시간을 줄이고 AWS에서 실행되는 애플리케이션에 더 많은 시간을 사용하도록 해 주는 서비스
+
+
+스택 리소스가 작동한 시간에 대한 요금이 부과
+AWS CloudFormation에서 실제 리소스 이름은 스택과 논리적 리소스 이름의 조합
+
+WaitCondition 리소스를 사용하여 다른 종속 리소스 생성을 보류
+
+intrinsic functions are special actions you use in your template to assign values to properties that are not available until runtime.
+
+/var/log/
+
+논리적 ID는 템플릿의 다른 부분에 있는 리소스를 참조하기 위해 여러 번 사용될 수 있다
+CloudFormation 스택에는 샌드박스나 테스트 영역이 없으므로 테스트 중에 생성한 리소스에 대해 요금이 부과
+
