@@ -513,3 +513,34 @@ EFS
 그룹 루트에 대한 읽기-실행 권한 다른 사람에 대한 읽기-실행 권한
 
 available-zone.file-system-id.efs.aws-region.amazonaws.com
+
+마그네틱 스토리지는 I/O 요구 사항이 적거나 급증하는 애플리케이션에 이상적
+
+내결함성보다 I/O 성능이 더 중요한 경우 RAID 0
+파일의 디스크 사용량을 측정하는 데 사용할 수 있는 두 가지 유틸리티인 du 및 stat 유틸리티
+
+noac 옵션을 사용하여 파일 시스템을 탑재 해제했다가 다시 탑재하여 속성 캐싱을 비활성화
+
+CloudWatch의 PutMetricData 요청 크기는 HTTP GET 요청의 경우 8KB, HTTP POST 요청의 경우 40KB로 제한됩니다. 사용자는 하나의 PutMetricData 요청에 최대 20개의 데이터 포인트를 포함
+
+
+cloudwatch
+고객당 매월 10개의 CloudWatch 지표, 10개의 경보, 1,000,000개의 API 요청 및 1,000개의 Amazon SNS 이메일 알림을 무료로 받을 수 있음
+
+Auto Scaling을 위해 CloudWatch
+8개의 지표와 1개의 차원을 지원
+
+Us-East-1은 지역이고 Us-East-1a는 해당 지역의 AZ
+
+put-metric-data 최대 2분
+
+list-metrics 명령을 사용하여 검색된 지표 목록에 새 지표가 표시되기까지 최대 15분
+
+S3 VPC 엔드포인트와 S3 버킷 정책을 사용하여 이 VPC 엔드포인트에 대한 액세스를 제한
+
+
+
+
+
+
+
