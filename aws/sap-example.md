@@ -539,8 +539,20 @@ list-metrics 명령을 사용하여 검색된 지표 목록에 새 지표가 표
 S3 VPC 엔드포인트와 S3 버킷 정책을 사용하여 이 VPC 엔드포인트에 대한 액세스를 제한
 
 
+Amazon CloudWatch Logs를 구문 분석 AWS X-Ray 추적을 분석하고 HTTP 메서드를 분석
 
+EFS
 
+NLB를 PrivateLink 엔드포인트 서비스에 연결하고 이 서비스를 사용할 계정을 화이트리스트에 추가
 
+ACM의 인증서는 지역 리소스
+둘 이상의 AWS 리전에서 동일한 FQDN(정규화된 도메인 이름) 또는 FQDN 집합에 대해 Elastic Load Balancing과 함께 인증서를 사용하려면 각 리전에 대한 인증서를 요청
+
+여러 AWS Snowball 어플라이언스를 사용하여 기존 이미지를 Amazon S3로 마이그레이션
+
+ECS Amazon Elastic Container Service
+
+AWS Config: 구성 규칙은 규정 준수에 매우 유용한 도구
+AWS CloudTrail: Cloud Trail은 감사를 위한 훌륭한 도구
 
 
