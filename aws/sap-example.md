@@ -562,4 +562,16 @@ SAML
 
 로깅 계정에서 Amazon Kinesis Data Streams를 생성하고, 각 애플리케이션 AWS 계정의 CloudWatch Logs 스트림에 대한 스트림을 구독하고, 데이터 스트림을 소스로 사용하여 Amazon Kinesis Data Firehose 전송 스트림을 구성하고, 로그 데이터를 Amazon S3에 유지
 
+Amazon Rekognition
+
+Re-platform
+
+버전 관리 및 버킷 액세스 로깅이 활성화된 객체 스토리지에 Amazon S3
+SSE-KMS
+
+
+CloudFront 뷰어 요청 트리거에 연결된 Amazon Lambda@Edge를 사용하여 세션 만료와 함께 보안 쿠키 토큰을 유지함으로써 사용자를 인증하고 권한을 부여함으로써 여러 지역에서 사용자 경험을 개선
+
+AWS Application Discovery Service
+
 
