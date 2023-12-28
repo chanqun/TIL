@@ -555,4 +555,11 @@ ECS Amazon Elastic Container Service
 AWS Config: 구성 규칙은 규정 준수에 매우 유용한 도구
 AWS CloudTrail: Cloud Trail은 감사를 위한 훌륭한 도구
 
+AWS 시스템 관리자
+
+AWS Fargate
+SAML
+
+로깅 계정에서 Amazon Kinesis Data Streams를 생성하고, 각 애플리케이션 AWS 계정의 CloudWatch Logs 스트림에 대한 스트림을 구독하고, 데이터 스트림을 소스로 사용하여 Amazon Kinesis Data Firehose 전송 스트림을 구성하고, 로그 데이터를 Amazon S3에 유지
+
 
