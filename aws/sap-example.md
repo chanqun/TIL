@@ -574,4 +574,16 @@ CloudFront 뷰어 요청 트리거에 연결된 Amazon Lambda@Edge를 사용하�
 
 AWS Application Discovery Service
 
+Mechanical Turk
+
+AWS CodePipeline을 사용하여 코드 리포지토리에 연결하고 AWS CodeBuild를 사용하여 빌드할 작업을 생성
+
+AWS-KMS 관리형 키를 사용하면 사용자가 마스터 키를 생성하고 제어할 수 있습
+고객 관리형 키와 함께 Amazon S3 서버 측 암호화를 사용하고, 고가용성 모드로 구성된 2개의 AWS CloudHSM 인스턴스를 사용하여 키를 관리
+
+호스트 선호도는 인스턴스 수준에서 구성됩니다. 인스턴스와 전용 호스트 간의 시작 관계를 설정합니다. (인스턴스가 실행될 수 있는 호스트 설정) 자동 배치를 사용하면 실행하는 인스턴스가 특정 호스트에서 실행되는지, 아니면 구성이 일치하는 사용 가능한 호스트에서 실행되는지 여부를 관리할 수 있습니다.
+
+AWS PrivateLink
+
+AWS Batch 
 
