@@ -620,3 +620,14 @@ AWS DMS를 사용하여 온프레미스 Oracle 데이터베이스와 AWS에서 �
 겹치지 않는 두 개의 AWS 시스템 관리자 유지 관리 기간 정의 + 겹치지 않는 두 개의 AWS 시스템 관리자 유지 관리 기간 정의
 단일 AWS CloudFormation 템플릿을 사용하여 별도의 계정에 애플리케이션 IAM 역할 및 리소스를 복제합니다. 각 애플리케이션 인스턴스의 VPC를 중앙 VPC에 연결하려면 VPC 피어링
 
+
+AWS::AutoScaling::AutoScalingGroup 리소스를 편집하여 UpdatePolicy 속성을 삽입하여 롤링 업데이트
+
+
+AWS Systems Manager 패치 관리자
+
+
+AWS Snowmobile - 대규모 마이그레이션
+
+
+
