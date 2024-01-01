@@ -629,5 +629,10 @@ AWS Systems Manager 패치 관리자
 
 AWS Snowmobile - 대규모 마이그레이션
 
+CloudFormation 템플릿을 수정하여 RDS 및 EBS 리소스에 DeletionPolicy 속성을 추가
+AWS DMS
+AWS SCT를 사용하여 애플리케이션에 포함된 SQL 코드 중 변환할 수 있는 코드와 수동으로 수행해야 하는 작업을 식별
+Fargate 시작 유형을 사용하여 Amazon ECS 클러스터에서 작업을 예약
 
-
+AWS Business Support 플랜
+Kinesis는 항상 IoT 및 로드에 가장 적합
