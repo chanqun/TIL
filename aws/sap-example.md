@@ -636,3 +636,15 @@ Fargate 시작 유형을 사용하여 Amazon ECS 클러스터에서 작업을 �
 
 AWS Business Support 플랜
 Kinesis는 항상 IoT 및 로드에 가장 적합
+
+Solutions Architect는 기존 애플리케이션 환경과 동일한 환경을 생성하고 애플리케이션을 새 환경에 배포
+환경 URL 교체
+
+
+DNS를 Amazon Route 53으로 마이그레이션하고 AWS Shield
+Amazon CloudFront 배포판을 생성 및 사용하고 여기에 AWS WAF
+
+
+
+AWS로 이전하고 있으며 Amazon Rekognition을 사용하여 데이터를 추가하여 기존 메타데이터를 강화
+AWS KMS - Key Management Service
