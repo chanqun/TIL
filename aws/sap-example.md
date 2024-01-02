@@ -648,3 +648,17 @@ Amazon CloudFront 배포판을 생성 및 사용하고 여기에 AWS WAF
 
 AWS로 이전하고 있으며 Amazon Rekognition을 사용하여 데이터를 추가하여 기존 메타데이터를 강화
 AWS KMS - Key Management Service
+
+
+StatusCheckFailed_System
+
+SAML(보안 검증 마크업 언어)
+Security Assertion Markup Language
+은 ID 제공자(IdP)가 사용자를 인증한 다음 SP(서비스 제공자)라고 하는 다른 애플리케이션에 인증 토큰을 전달할 수 있는 공개 통합 표준
+
+
+Amazon Athena 및 Amazon QuickSight와 같은 도구를 사용하여 비용 및 사용 보고서를 분석
+
+람다 최대 15분
+
+DNSSEC
