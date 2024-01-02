@@ -662,3 +662,13 @@ Amazon Athena 및 Amazon QuickSight와 같은 도구를 사용하여 비용 및 
 람다 최대 15분
 
 DNSSEC
+
+aws athena
+
+ENI 풀
+
+AWS Service Catalog 
+
+redshift 대비 임시쿼리 + 비용 이점
+AWS Glue 크롤러를 사용하여 모든 데이터베이스를 크롤링
+Amazon S3에 로드하고 Amazon Athena를 사용하여 쿼리를 실행
