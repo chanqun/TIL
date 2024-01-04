@@ -672,3 +672,10 @@ AWS Service Catalog
 redshift 대비 임시쿼리 + 비용 이점
 AWS Glue 크롤러를 사용하여 모든 데이터베이스를 크롤링
 Amazon S3에 로드하고 Amazon Athena를 사용하여 쿼리를 실행
+
+
+AWS CDK를 사용하면 코드로 인프라를 정의하고 AWS CloudFormation을 통해 이를 프로비저닝할 수 있다
+
+장기 자격 증명 없음 -> 역할 사용. 계정 자체가 아닌 역할에 권한을 부여하는 버킷 정책
+
+ExecutionRoleArn(옵션 C)과 taskRoleArn(D) 사이에서는 후자만 DynamoDB와 상호 작용하는 데 사용됩니다. 전자는 이미지를 다운로드하거나 Cloudwatch에 로그를 쓰는 데 사용
