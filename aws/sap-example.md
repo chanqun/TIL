@@ -679,3 +679,11 @@ AWS CDK를 사용하면 코드로 인프라를 정의하고 AWS CloudFormation�
 장기 자격 증명 없음 -> 역할 사용. 계정 자체가 아닌 역할에 권한을 부여하는 버킷 정책
 
 ExecutionRoleArn(옵션 C)과 taskRoleArn(D) 사이에서는 후자만 DynamoDB와 상호 작용하는 데 사용됩니다. 전자는 이미지를 다운로드하거나 Cloudwatch에 로그를 쓰는 데 사용
+
+DynamoDB는 strongly consistent reads 지원하지 않음
+
+FullAWSAccess SCP를 제거하면 모든 서비스에 대한 모든 작업이 이제 암시적으로 거부
+
+AWS X-Ray 엔드투엔드
+
+원격 IP를 식별하려면 S3 액세스 로그를 확인해야 합니다. Athena는 이러한 로그를 분석하는 데 도움을 줌
