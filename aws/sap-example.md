@@ -687,3 +687,16 @@ FullAWSAccess SCP를 제거하면 모든 서비스에 대한 모든 작업이 �
 AWS X-Ray 엔드투엔드
 
 원격 IP를 식별하려면 S3 액세스 로그를 확인해야 합니다. Athena는 이러한 로그를 분석하는 데 도움을 줌
+
+Amazon Transcribe - 개발자가 음성을 텍스트로 변환하는 기능을 애플리케이션에 쉽게 추가할 수 있도록 하는 자동 음성 인식(ASR) 서비스
+비용 탐색기를 사용하여 추가 비용의 원인을 해결
+
+Amazon Macie는 s3만 가능
+
+ALB(Application Load Balancer)
+
+요청자 지불이 활성화된 경우 요청에는 request-payer 매개변수가 포함되어야 함
+
+
+
+
