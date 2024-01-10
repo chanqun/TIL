@@ -719,4 +719,7 @@ AWS SMS (Server Migration Service)
 AWS Step Functions - 대규모 병렬 워크플로 오케스트레이션
 DynamoDB Streams를 사용하여 람다를 트리거한 다음 단계 함수를 트리거
 
+카나리아 배포 - 일부 사용자가 사용할 수 있도록
+Amazon Kinesis 데이터 스트림을 처리하는 AWS Lambda 함수를 생성하고, @connections 명령을 사용하여 연결된 클라이언트에 콜백 메시지
 
+AWS CDK(AWS Cloud Development Kit)
