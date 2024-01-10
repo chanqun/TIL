@@ -705,3 +705,18 @@ NAT 게이트웨이 - 시간당 요금
 기본적으로 S3 객체는 해당 객체를 업로드한 AWS 계정이 소유합니다. 버킷을 다른 계정이 소유한 경우에도 마찬가지입니다. 객체에 대한 액세스 권한을 얻으려면 객체 소유자가 귀하(버킷 소유자)에게 명시적으로 액세스 권한을 부여해야 합니다
 
 AWS Config 관리형 규칙을 사용하여 정책 위반을 감지
+
+CMK
+Customer managed key
+
+AWS CLI update-alias 명령을 Routing-config 파라미터와 함께 사용하여 로드를 분산
+
+Amazon Kinesis Data Streams를 사용하여 인바운드 센서 데이터를 수집하고, Kinesis 클라이언트로 데이터를 분석하고, Amazon EMR을 사용하여 Amazon Redshift 클러스터에 결과를 저장
+
+
+AWS SMS (Server Migration Service)
+
+AWS Step Functions - 대규모 병렬 워크플로 오케스트레이션
+DynamoDB Streams를 사용하여 람다를 트리거한 다음 단계 함수를 트리거
+
+
