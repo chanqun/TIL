@@ -100,7 +100,7 @@ Route 53 가중치 라운드 로빈
 SQS는 14일 동안만 저장
 SES (Simple Email Service) 이메일 서비스 공급자
 
-Amazon RDS - AWS Security Token Service "AssumeRole" 
+Amazon RDS - AWS Security Token Service "AssumeRole"
 
 EMR의 빅 데이터 워크로드는 내결함성 특성으로 인해 중단되더라도 계속해서 처리할 수 있다.
 
@@ -132,7 +132,7 @@ vCenter용 EC2 VM Import Connector
 
 
 
- 웹 서버 앞에 역방향 프록시 레이어를 구현하고 각 역방향 프록시 서버에 IDS/IPS 에이전트를 구성
+웹 서버 앞에 역방향 프록시 레이어를 구현하고 각 역방향 프록시 서버에 IDS/IPS 에이전트를 구성
 
 CloudFormation
 WS 리소스를 모델링하고 설정하여 리소스 관리 시간을 줄이고 AWS에서 실행되는 애플리케이션에 더 많은 시간을 사용하도록 해 주는 서비스
@@ -239,7 +239,7 @@ IAM, the maximum length for a role name is 64 characters.
 aws: SourceIp
 
 
-AWS EC2에서는 한 번에 20개의 온디맨드 인스턴스와 100개의 스팟 인스턴스를 실행할 수 있습니다. 
+AWS EC2에서는 한 번에 20개의 온디맨드 인스턴스와 100개의 스팟 인스턴스를 실행할 수 있습니다.
 
 g2.2xlarge는 5개
 
@@ -269,7 +269,7 @@ AWS Data Pipeline 재시도 10회까지
 
 cr1.8xlarge - 244GB memory
 
-AWS EC2에서는 한 번에 20개의 온디맨드 인스턴스와 100개의 스팟 인스턴스 
+AWS EC2에서는 한 번에 20개의 온디맨드 인스턴스와 100개의 스팟 인스턴스
 5개의 2xlarge
 2개의 4xlarge
 
@@ -585,16 +585,16 @@ AWS-KMS 관리형 키를 사용하면 사용자가 마스터 키를 생성하고
 
 AWS PrivateLink
 
-AWS Batch 
+AWS Batch
 
 Amazon EMR (Elastic MapReduce)
 Amazon S3에 데이터 파일을 저장하고 각 파일의 메타데이터에 대해 Range GET을 사용한 다음 관련 데이터를 인덱싱
 
 선불 예약 인스턴스
 
-Route 53은 4초 이내에 엔드포인트와의 TCP 연결을 설정할 수 있어야 합니다. 
-또한 엔드포인트는 연결 후 2초 이내에 HTTP 상태 코드 2xx 또는 3xx로 응답해야 합니다. 
-Route 53 상태 확인기는 HTTP 상태 코드를 수신한 후 다음 2초 이내에 엔드포인트로부터 응답 본문을 수신해야 합니다. 
+Route 53은 4초 이내에 엔드포인트와의 TCP 연결을 설정할 수 있어야 합니다.
+또한 엔드포인트는 연결 후 2초 이내에 HTTP 상태 코드 2xx 또는 3xx로 응답해야 합니다.
+Route 53 상태 확인기는 HTTP 상태 코드를 수신한 후 다음 2초 이내에 엔드포인트로부터 응답 본문을 수신해야 합니다.
 Route 53은 응답 본문에서 사용자가 지정한 문자열을 검색합니다. 문자열은 응답 본문의 처음 5,120바이트에 완전히 나타나야 합니다.
 
 
@@ -667,7 +667,7 @@ aws athena
 
 ENI 풀
 
-AWS Service Catalog 
+AWS Service Catalog
 
 redshift 대비 임시쿼리 + 비용 이점
 AWS Glue 크롤러를 사용하여 모든 데이터베이스를 크롤링
@@ -723,3 +723,26 @@ DynamoDB Streams를 사용하여 람다를 트리거한 다음 단계 함수를 
 Amazon Kinesis 데이터 스트림을 처리하는 AWS Lambda 함수를 생성하고, @connections 명령을 사용하여 연결된 클라이언트에 콜백 메시지
 
 AWS CDK(AWS Cloud Development Kit)
+
+Amazon EventBridge
+EventBridge 스케줄러를 사용하여 미리 알림, 지연된 작업 또는 중지 위치에서 다시 시작 알림이 포함된 일정 예약 서비스
+
+AWS AppSync
+Fully-Managed Serverless GraphQL API Service for Real-Time Data Queries
+AWS CodeBuild를 사용하여 테스트 및 보안 스캔을 실행
+AWS IoT 모니터링에 적절한 AWS IoT 규칙이 실행되고 있는지, AWS IoT 규칙이 올바른 규칙 작업으로 활성화되어 있는지 확인
+
+
+AWS Shield Advanced
+
+AWS Schema Conversion Tool, AWS Database Migration Service(AWS DMS)
+Amazon S3의 공개 액세스 차단 기능을 사용하여 버킷에서 IgnorePublicAcis 옵션을 TRUE
+
+
+
+NLB 서브넷과의 통신을 허용하려면 NACL이 로깅 서비스 서브넷에 연결되어 있는지 확인하십시오. EC2 인스턴스에서 실행되는 로깅 서비스 서브넷과의 통신을 허용하려면 NACL이 NLB 서브넷에 연결되어 있는지 확인
+EC2 인스턴스에서 실행 중인 로깅 서비스에 대한 보안 그룹을 확인하여 NLB 서브넷으로부터의 수신을 허용하는지 확인
+
+내결함성이란 시스템의 일부 구성 요소가 작동하지 않더라도 계속 작동할 수 있는 기능
+고가용성은 전체 시스템에 대한 개념입니다. 그 목표는 사람이 개입하지 않아도 시스템이 항상 작동하며 액세스 가능하며 가동 중지를 최소화하도록 보장하는 것
+
