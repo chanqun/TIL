@@ -22,3 +22,6 @@ data scientist, NLP Engineer, NLP Researcher
 5. Huge investment by Big Tech
 
 ## 3 Regex For NLP
+1. Customer Service ChatBot
+2. Information Extraction
+
