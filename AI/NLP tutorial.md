@@ -25,3 +25,33 @@ data scientist, NLP Engineer, NLP Researcher
 1. Customer Service ChatBot
 2. Information Extraction
 
+## 4 Three Category Of Techniques for NLP
+
+## 5 NLP Tasks
+
+- Customer Complain Severity Classification
+TF-IDF Vectorizer -> Naive Bayes Classifier -> High, Medium, Low
+
+- Classify the document
+documents -> ocr -> text -> Doc2Vec -> Logistic Regression Classification
+
+- Delete Fake Profile 
+
+- Text Similarity (HuggingFace.co sentence-transformers https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2)
+Resume Screener!
+Job Description / Resume
+![img.png](../image/ai/practicalNLP)
+
+- Information Retrieval
+TFIDF Score BERT
+
+- Chat Bots (FAQ Bot, Flow-Based Bot, Open-Ended Bot)
+- Machine Translation
+- Language Modeling (Statistical Model, Neural Model)
+- Text Summarization
+- Topic Modeling
+- Voice Assistants
+
+## 6 NLP Pipeline
+
+
