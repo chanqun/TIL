@@ -173,7 +173,38 @@ OutOfMemoryError가 발생한다.
 #### 2.4 실전 : OutOfMemoeryError 예외
 <자바 가상 머신 명세>에 따르면 프로그램 카운터 외에도 가상 머신 메모리의 여러 런타임 영역에서 OutOfMemoryError가 날 수 있음
 
+메모리 누수라면 도구를 이용해 누수된 객체로부터 GC 루트까지의 참조 사슬을 살표보고 어느 GC루트와 연결되어 있기에 가비지 컬렉터가 회수하지 못했는지 확인
+메모리 누수가 아니라면, 모든 객체가 다 살아 있어야 한다면 자바 가상 머신의 힙 매개 변수 설정 -Xmx -Xms와 컴퓨터의 가용 메모리를 비교하여 가상 머신에 메모리를 더 많이 할당할 수 있는지 알아본다.
+그다음에는 코드에서 수명 주기가 너무 길거나 상태를 너무 오래 유지하는 객체는 없는지, 공간 낭비가 심한 데이터 구조를 쓰고 있지는 않은지 살표 프로그램이 런타임에 소비하는 메모리를 최소로 낮춘다.
 
+##### 2.4.2 가상 머신 스택과 네이티브 메서드 스택 오버플로
+스택 크기는 오직 -Xss 매개 변수로만 변경할 수 있다.
+StackOverFlowError, OutOfMemoryError 확인
+
+##### 2.4.3 메서드 영역과 런타임 상수 풀 오버플로
+영구 세대의 크기는 
+JDK 7 이하 -XX:PermSize, -XX:MaxPermSize 매개 변수로 조절 할 수 있고 이는 상수 풀 용량에도 간접덕으로 영향을 준다.
+JDK 8 이상 -XX:MetaspaceSize, -XX:MaxMetaspaceSize, -XX: MinMetaspaceFreeRatio
+
+```java
+public class RuntimeConstantPoolOOM {
+    public static void main(String[] args) {
+        String str1= new StringBuilder("컴퓨터").append(" 소프트웨어").toString();
+        System.out.println(strl.intern() == str1); 
+    }
+}
+```
+jdk 6 false 처음은 영구 세대의 문자열 상수 풀에 복사, StringBuilder로 생성한 문자열 객체의 인스턴스는 자바 힙에 존재
+jdk 7 이상 true intern() 문자열 상수 자바 힙
+
+JDK 8 부터는 영구 세대가 사라지고, 메타스페이스를 이용
+
+
+##### 2.4.4 네이티브 다이렉트 메모리 오버플로
+
+-XX:MaxDirectMemorySize 따로 설정하지 않았다면 기본적으로 -Xmx로 설정한 자바 힙의 최댓값과 같음
+메모리 오버플로로 생성된 덤프 파일이 매우 작고 프로그램에서 DirectMemory를 직접 또는 간접적 (NIO) 사용했다면,
+다이렉트 메모리에서 원인을 찾아야한다.
 
 
 
